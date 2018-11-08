@@ -1,9 +1,9 @@
 <?php
 
 //云图库设置
-define('CLOUDKEY', '<这里是云图库的Cloud Key>');
-define('CLOUDSECRET', '<这里是云图库的Cloud Secret>');
-define('CLOUDURL', 'http://<这里是云图库的Client-end URL>/search');
+define('CLOUDKEY', 'ff72c3691ad289b574acbda40be0b122');
+define('CLOUDSECRET', '7GX2bFobBBXMGkbqnpV3PicKZeQAtRNA5pgBjiDpY9ehe2Col7P3zYqySVEAjboBxzH6n7U7GqOpTLQbFjEaXSMBYGa4Aj8i1wh38tmBqfBFQi3EzcK1s1qFUXhqDspH');
+define('CLOUDURL', 'http://9e65551b45f6ee6f1683202bb1aac923.cn1.crs.easyar.com:8080/search');
 
 header('Content-Type: application/javascript; charset=UTF-8');
 

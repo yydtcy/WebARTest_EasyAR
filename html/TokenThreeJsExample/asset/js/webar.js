@@ -5,7 +5,8 @@
  * @param token 云识别token
  * @constructor
  */
-var token='xCGN4dtYRR1KAWo7LYQ6Av8AIeNfb1AeClZzrLxXEVnihr999UZ5x+uy+dd9ahTOj+zz5zkA4U+E0Vi6bqAkdg==';
+var interval=100;
+var token='r3MNNdvBsn5G25CQHsXCrNCdUIGuku8BJZm/f4EJ6f0zOWL9h6RgQBTyeZU7PFkry4PQP5Gsj3EgHbwAo6yuSQ==';
 const WebAR = function(interval, recognizeUrl, token) {
     var interval = interval;
     var recognizeUrl = recognizeUrl;

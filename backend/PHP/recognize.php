@@ -1,9 +1,9 @@
 <?php
 
 //云图库设置
-define('CLOUDKEY', 'ff72c3691ad289b574acbda40be0b122');
-define('CLOUDSECRET', '7GX2bFobBBXMGkbqnpV3PicKZeQAtRNA5pgBjiDpY9ehe2Col7P3zYqySVEAjboBxzH6n7U7GqOpTLQbFjEaXSMBYGa4Aj8i1wh38tmBqfBFQi3EzcK1s1qFUXhqDspH');
-define('CLOUDURL', 'http://9e65551b45f6ee6f1683202bb1aac923.cn1.crs.easyar.com:8080/search');
+define('CLOUDKEY', '<这里是云图库的Cloud Key>');
+define('CLOUDSECRET', '<这里是云图库的Cloud Secret>');
+define('CLOUDURL', 'http://<这里是云图库的Client-end URL>/search');
 
 header('Content-Type: application/javascript; charset=UTF-8');
 
@@ -13,8 +13,7 @@ if (!$image) showMsg(1, '未发送图片数据');
 
 // step 2: 将图片数据发送云识别服务
 $params = array(
-	// GMT/UTC 日期与时间
-	'date' => gmdate('Y-m-d\TH:i:s.123\Z'),
+	'timestamp' => time() * 1000,
 	'appKey' => CLOUDKEY,
 	'image' => $image,
 );
@@ -76,7 +75,7 @@ function getPostFile() {
 }
 
 /**
- * 生成签名，使用sha1加密
+ * 生成签名，使用sha256加密
  * @param $params
  * @param $cloudSecret
  * @return string
@@ -91,7 +90,7 @@ function getSign($params, $cloudSecret) {
 	}
 	$str = implode('', $tmp);
 
-	return sha1($str . $cloudSecret);
+	return hash('sha256', $str . $cloudSecret);
 }
 
 function showMsg($code, $msg) {

@@ -6,8 +6,8 @@
  * @constructor
  */
 var interval=100;
-var recognizeUrl='http://9e65551b45f6ee6f1683202bb1aac923.cn1.crs.easyar.com:8080/search';
-var token='r3MNNdvBsn5G25CQHsXCrNCdUIGuku8BJZm/f4EJ6f0zOWL9h6RgQBTyeZU7PFkry4PQP5Gsj3EgHbwAo6yuSQ==';
+const recognizeUrl='https://cn1-crs.easyar.com:8443/search';
+const token='OzIWIZbePIY65A9RZ5tyWLxG2lGz6Ak8bJNMTCZUbNdA7k2b7zJoKt3ZIWxa1P8CO8OpcyJqWbnHKDIwVqC5JA==';
 const WebAR = function(interval, recognizeUrl, token) {
     var interval = interval;
     var recognizeUrl = recognizeUrl;

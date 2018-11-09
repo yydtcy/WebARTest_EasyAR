@@ -58,6 +58,7 @@ function initLight() {
 var flag;
 function initModel() {
 
+    webAR.trace('initModel');
     //辅助工具
     var helper = new THREE.AxesHelper(50);
     scene.add(helper);

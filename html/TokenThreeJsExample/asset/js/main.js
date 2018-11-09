@@ -93,7 +93,7 @@ function initCube(){
     if(i<50)
     {
     // 绘制一个矩形
-      var geometry=new THREE.CubeGeometry(3, 4, 0.2);
+      var geometry=new THREE.CubeGeometry(300, 400, 20);
       var texture = THREE.ImageUtils.loadTexture('asset/Texture/hb.jpg');
       var material=new THREE.MeshPhongMaterial({
           specular:  0xC0C0C0,shininess:5,map: texture

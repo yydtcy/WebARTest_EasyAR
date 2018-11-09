@@ -69,10 +69,10 @@ document.querySelector('#start').addEventListener('click', () => {
         // threeHelper.loadObject(meta.model);
 
         // 加载本地模型
-        threeHelper.loadObject('asset/model/trex_v3.fbx');
+        //threeHelper.loadObject('asset/model/trex_v3.fbx');
 
-        //webAR.trace('加载模型');
-        //draw();
+        webAR.trace('加载模型');
+        draw();
     });
 }, false);
 

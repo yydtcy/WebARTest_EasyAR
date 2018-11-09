@@ -293,6 +293,7 @@ function onMouseDown( event ) {
 
 
 const draw=function() {
+    webAR.trace('加载模型');
     initGui();
     initRender();
     initScene();

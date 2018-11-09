@@ -72,7 +72,7 @@ document.querySelector('#start').addEventListener('click', () => {
         threeHelper.loadObject('asset/model/trex_v3.fbx');
 
         //webAR.trace('加载模型');
-        draw();
+        //draw();
     });
 }, false);
 

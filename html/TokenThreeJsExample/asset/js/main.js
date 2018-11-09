@@ -12,7 +12,7 @@ function initRender() {
 var camera;
 function initCamera() {
     camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 1, 3000);
-    camera.position.set(0, 0, 5);
+    camera.position.set(0, 0, 50);
     camera.lookAt(new THREE.Vector3(0,0,0));
    //camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 3000 );
    //camera.position.z = 1000;
@@ -106,7 +106,6 @@ function initCube(){
       arraCube.push(cube);
       scene.add(cube);
       i++;
-      webAR.trace('Cube');
     }
     else 
     {
@@ -164,6 +163,7 @@ function initControls() {
 function render() {
 
     renderer.render( scene, camera );
+    webAR.trace('Render');
 }
 
 //窗口变动触发的函数

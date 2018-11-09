@@ -4,7 +4,10 @@
  * 如果不修改，请扫描身份证印有国徽的那一面来体验
  *
  */
-const webAR = new WebAR(100, 'https://cn1-crs.easyar.com:8443/search', 'I63ooxI48OcR9MseGyf9F3UpVoa4Seio4CtCM1k2kHD59TngdniDdS2FXAx3UWlStF+eUKVvoEJWuU2+bGgpcQ==');
+//const recognizeUrl='https://9e65551b45f6ee6f1683202bb1aac923.cn1.crs.easyar.com:8080/search';
+//const token='OzIWIZbePIY65A9RZ5tyWLxG2lGz6Ak8bJNMTCZUbNdA7k2b7zJoKt3ZIWxa1P8CO8OpcyJqWbnHKDIwVqC5JA==';
+const webAR = new WebAR(100, 'https://9e65551b45f6ee6f1683202bb1aac923.cn1.crs.easyar.com:8080/search', 'OzIWIZbePIY65A9RZ5tyWLxG2lGz6Ak8bJNMTCZUbNdA7k2b7zJoKt3ZIWxa1P8CO8OpcyJqWbnHKDIwVqC5JA==');
+//const webAR = new WebAR(100, 'https://cn1-crs.easyar.com:8443/search', 'I63ooxI48OcR9MseGyf9F3UpVoa4Seio4CtCM1k2kHD59TngdniDdS2FXAx3UWlStF+eUKVvoEJWuU2+bGgpcQ==');
 const threeHelper = new ThreeHelper();
 
 document.querySelector('#openCamera').addEventListener('click', function(){

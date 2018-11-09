@@ -180,7 +180,7 @@ const WebAR = function(interval, recognizeUrl, token) {
                         if (msg.statusCode === 0) {
                             resolve(msg.result);
                         } else {
-                            reject('msg');
+                            reject(msg);
                         }
                     } else {
                         reject(msg);

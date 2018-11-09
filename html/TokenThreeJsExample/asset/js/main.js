@@ -105,6 +105,7 @@ function initCube(){
       arraCube.push(cube);
       scene.add(cube);
       i++;
+      webAR.trace('Cube');
     }
     else 
     {

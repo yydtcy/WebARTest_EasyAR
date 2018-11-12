@@ -82,6 +82,7 @@ function initModel() {
         object.scale.multiplyScalar(0.03);    // 缩放模型大小
         scene.add(object);
     });
+    webAR.trace('加载结束');
 
     //flag = setInterval(initCube, 1000);
 }

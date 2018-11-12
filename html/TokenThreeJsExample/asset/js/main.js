@@ -93,8 +93,12 @@ function initCube(){
     if(i<50)
     {
     // 绘制一个矩形
-      var geometry=new THREE.CubeGeometry(300, 400, 20);
+      var geometry=new THREE.CubeGeometry(3, 4, 0.2);
       var texture = THREE.ImageUtils.loadTexture('asset/Texture/hb.jpg');
+      if(texture==null)
+      {
+        webAR.trace('null');
+      }
       var material=new THREE.MeshPhongMaterial({
           specular:  0xC0C0C0,shininess:5,map: texture
       });
@@ -163,7 +167,7 @@ function initControls() {
 function render() {
 
     renderer.render( scene, camera );
-    webAR.trace('Render');
+    //webAR.trace('Render');
 }
 
 //窗口变动触发的函数

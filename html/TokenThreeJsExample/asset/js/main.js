@@ -76,12 +76,12 @@ function initModel() {
     });*/
 
 
-    /*var fbx_loader = new THREE.FBXLoader();
+    var fbx_loader = new THREE.FBXLoader();
 
     fbx_loader.load('asset/model/trex_v3.fbx', function(object) {
         object.scale.multiplyScalar(0.03);    // 缩放模型大小
         scene.add(object);
-    });*/
+    });
 
     flag = setInterval(initCube, 1000);
 }

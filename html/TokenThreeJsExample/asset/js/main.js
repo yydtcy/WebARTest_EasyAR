@@ -1,8 +1,10 @@
 
 const MainScene = function(){
 
+    this.renderer = new THREE.WebGLRenderer({antialias:true, alpha: true});
+    this.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
     this.initRender=function() {
-        this.renderer = new THREE.WebGLRenderer({antialias:true, alpha: true});
+
        //renderer = new THREE.CanvasRenderer({antialias:true});
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         //告诉渲染器需要阴影效果
@@ -10,7 +12,7 @@ const MainScene = function(){
         document.body.appendChild(renderer.domElement);
     }
     this.initCamera=function() {
-        this.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+
         this.camera.position.set(-30, 30, 25);
         //camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 1, 3000);
         //camera.position.set(0, 0, 50);
@@ -35,7 +37,7 @@ const MainScene = function(){
     this.initLight=function() {
         this.scene.add(new THREE.AmbientLight(0x444444));
     
-        const light = new THREE.PointLight(0xffffff, 2, 300);
+        var light = new THREE.PointLight(0xffffff, 2, 300);
         light.position.set(100, 0, 200);
     
         //告诉平行光需要开启阴影投射
@@ -43,7 +45,7 @@ const MainScene = function(){
     
         this.scene.add(light);
     
-        const light1 = new THREE.PointLight(0xffffff,2, 300);
+        var light1 = new THREE.PointLight(0xffffff,2, 300);
         light1.position.set(-100, 0, -200);
     
         //告诉平行光需要开启阴影投射
@@ -56,7 +58,7 @@ const MainScene = function(){
 
         webAR.trace('initModel');
         //辅助工具
-        const helper = new THREE.AxesHelper(50);
+        var helper = new THREE.AxesHelper(50);
         this.scene.add(helper);
     
         /*var loader = new THREE.ColladaLoader();
@@ -70,7 +72,7 @@ const MainScene = function(){
         });*/
     
     
-        const fbx_loader = new THREE.FBXLoader();
+        var fbx_loader = new THREE.FBXLoader();
     
         fbx_loader.load('asset/model/trex_v3.fbx', function(object) {
             object.scale.multiplyScalar(0.03);    // 缩放模型大小
@@ -89,16 +91,16 @@ const MainScene = function(){
         if(i<50)
         {
         // 绘制一个矩形
-        const geometry=new THREE.CubeGeometry(3, 4, 0.2);
+        var geometry=new THREE.CubeGeometry(3, 4, 0.2);
         var texture = THREE.ImageUtils.loadTexture('asset/Texture/hb.jpg');
           if(texture==null)
           {
             webAR.trace('null');
           }
-          const material=new THREE.MeshPhongMaterial({
+          var material=new THREE.MeshPhongMaterial({
               specular:  0xC0C0C0,shininess:5,map: texture
           });
-          const cube = new THREE.Mesh(geometry, material);
+          var cube = new THREE.Mesh(geometry, material);
           cube.position.x=3*parseInt(Math.random()*10-5);
           cube.position.y=20;
           cube.position.z=parseInt(Math.random()*40-20);

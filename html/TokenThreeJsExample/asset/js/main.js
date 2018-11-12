@@ -301,7 +301,7 @@ function onMouseDown( event ) {
 }
 
 
-const draw=function() {
+function draw() {
     webAR.trace('$$$$$$$');
     initGui();
     initRender();

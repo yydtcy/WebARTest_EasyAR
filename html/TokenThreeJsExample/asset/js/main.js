@@ -83,7 +83,7 @@ function initModel() {
         scene.add(object);
     });
 
-    flag = setInterval(initCube, 1000);
+    //flag = setInterval(initCube, 1000);
 }
 
 

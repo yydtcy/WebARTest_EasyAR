@@ -3,6 +3,7 @@ const MainScene = function(){
 
     this.renderer = new THREE.WebGLRenderer({antialias:true, alpha: true});
     this.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+    this.scene = new THREE.Scene();
     this.initRender=function() {
 
        //renderer = new THREE.CanvasRenderer({antialias:true});
@@ -22,9 +23,9 @@ const MainScene = function(){
        //camera.position.y = 0;
     }
 
-    this.initScene=function() {
-        this.scene = new THREE.Scene();
-    }
+    //this.initScene=function() {
+
+    //}
 
     this.initGui=function() {
         //声明一个保存需求修改的相关数据的对象
@@ -292,7 +293,7 @@ const MainScene = function(){
         webAR.trace('$$$$$$$');
         this.initGui();
         this.initRender();
-        this.initScene();
+        //this.initScene();
         this.initCamera();
         this.initModel();
         this.initLight();

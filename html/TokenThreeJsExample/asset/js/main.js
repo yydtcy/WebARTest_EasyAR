@@ -1,7 +1,7 @@
 
 var renderer;
 function initRender() {
-    renderer = new THREE.WebGLRenderer({antialias:true});
+    renderer = new THREE.WebGLRenderer({antialias:true, alpha: true});
    //renderer = new THREE.CanvasRenderer({antialias:true});
     renderer.setSize(window.innerWidth, window.innerHeight);
     //告诉渲染器需要阴影效果

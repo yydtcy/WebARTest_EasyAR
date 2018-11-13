@@ -292,7 +292,7 @@ const MainScene = function(){
 
     this.draw=function() {
         webAR.trace('$$$$$$$');
-        this.initGui();
+        //this.initGui();
         this.initRender();
         //this.initScene();
         //this.initCamera();
@@ -301,7 +301,7 @@ const MainScene = function(){
         //this.initControls();
         //this.initStats();
     
-        this.animate();
+        //this.animate();
         window.onresize = onWindowResize;
     };
 

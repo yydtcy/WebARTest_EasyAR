@@ -11,7 +11,7 @@ const MainScene = function(){
         //告诉渲染器需要阴影效果
        // renderer.setClearColor(0xffffff);
         document.body.appendChild(renderer.domElement);
-    }
+    };
     this.initCamera=function() {
 
         this.camera.position.set(-30, 30, 25);
@@ -21,7 +21,7 @@ const MainScene = function(){
        //camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 3000 );
        //camera.position.z = 1000;
        //camera.position.y = 0;
-    }
+    };
 
     //this.initScene=function() {
 
@@ -33,7 +33,7 @@ const MainScene = function(){
         //};
         //var datGui = new dat.GUI();
         //将设置属性添加到gui当中，gui.add(对象，属性，最小值，最大值）
-    }
+    };
 
     this.initLight=function() {
         this.scene.add(new THREE.AmbientLight(0x444444));
@@ -53,7 +53,7 @@ const MainScene = function(){
         light1.castShadow = true;
     
         this.scene.add(light1);
-    }
+    };
 
     this.initModel=function() {
 
@@ -82,7 +82,7 @@ const MainScene = function(){
         //webAR.trace('over');
     
         //flag = setInterval(initCube, 1000);
-    }
+    };
 
     var arraCube=[];
     this.initCube=function(){
@@ -115,7 +115,7 @@ const MainScene = function(){
             clearInterval(flag);
         }
     
-    }
+    };
 
     
     this.move=function(){
@@ -126,13 +126,13 @@ const MainScene = function(){
             arraCube[p].position.y=arraCube[p].position.y-0.3;
         }
       }
-    }
+    };
 
     //初始化性能插件
     this.initStats=function() {
         var stats = new Stats();
         document.body.appendChild(stats.dom);
-    }
+    };
 
     const controls = new THREE.OrbitControls( this.camera, this.renderer.domElement );
     this.initControls=function() {
@@ -159,13 +159,13 @@ const MainScene = function(){
      
         // 在容器上注册事件，这里container也可以换成document
         document.body.addEventListener( 'mousedown', onMouseDown, false );
-    }
+    };
 
     this.render=function() {
 
         this.renderer.render( this.scene, this.camera );
         //webAR.trace('Render');
-    }
+    };
 
     //窗口变动触发的函数
     this.onWindowResize=function() {
@@ -174,7 +174,7 @@ const MainScene = function(){
         this.render();
         this.renderer.setSize( window.innerWidth, window.innerHeight );
 
-    }
+    };
 
     this.animate=function() {
         //更新控制器
@@ -190,11 +190,11 @@ const MainScene = function(){
     
         window.requestAnimationFrame(this.animate);
     
-    }
+    };
 
     this.removeParticle=function(par){
         this.scene.remove(par);
-    }
+    };
 
     var t1 = new Date().getTime(); 
     var stats;
@@ -253,11 +253,11 @@ const MainScene = function(){
             this.scene.add( particle );
         }
        // scene.remove(group);
-    }
+    };
 
     this.fsin=function(x){     //正弦函数
         return 50*Math.sin(0.8*x*Math.PI/180);
-    }
+    };
 
     var raycaster = new THREE.Raycaster();
     var mouse = new THREE.Vector2();
@@ -287,7 +287,7 @@ const MainScene = function(){
                 
             }
         } 
-    }
+    };
 
     this.draw=function() {
         webAR.trace('$$$$$$$');
@@ -302,7 +302,7 @@ const MainScene = function(){
     
         this.animate();
         window.onresize = onWindowResize;
-    }
+    };
 
 };
 

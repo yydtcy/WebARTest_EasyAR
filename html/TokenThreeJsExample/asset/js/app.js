@@ -73,7 +73,7 @@ document.querySelector('#start').addEventListener('click', () => {
 
         webAR.trace('加载模型');
         //initModel();
-        mainScene.draw();
+        //mainScene.draw();
     });
 }, false);
 

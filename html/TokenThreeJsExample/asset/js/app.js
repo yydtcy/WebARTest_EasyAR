@@ -8,8 +8,8 @@
 //const token='OzIWIZbePIY65A9RZ5tyWLxG2lGz6Ak8bJNMTCZUbNdA7k2b7zJoKt3ZIWxa1P8CO8OpcyJqWbnHKDIwVqC5JA==';
 //const webAR = new WebAR(100, 'https://9e65551b45f6ee6f1683202bb1aac923.cn1.crs.easyar.com:8080/search', 'MJenSGhfCun8QxqnlUwG9KGj98S1QiNToGnqRzu3lw4lx6U9HC4qLy6c7sSZZ+sBHHSBpzwch03NdkD/LCr8mg==');
 const webAR = new WebAR(100, 'https://cn1-crs.easyar.com:8443/search', 'I63ooxI48OcR9MseGyf9F3UpVoa4Seio4CtCM1k2kHD59TngdniDdS2FXAx3UWlStF+eUKVvoEJWuU2+bGgpcQ==');
-const threeHelper = new ThreeHelper();
-//const mainScene = new MainScene();
+//const threeHelper = new ThreeHelper();
+const mainScene = new MainScene();
 document.querySelector('#openCamera').addEventListener('click', function(){
     const videoSetting = {width: 480, height: 360};
 
@@ -69,11 +69,11 @@ document.querySelector('#start').addEventListener('click', () => {
         // threeHelper.loadObject(meta.model);
 
         // 加载本地模型
-        threeHelper.loadObject('asset/model/trex_v3.fbx');
+        //threeHelper.loadObject('asset/model/trex_v3.fbx');
 
         webAR.trace('加载模型');
         //initModel();
-        //mainScene.draw();
+        mainScene.draw();
     });
 }, false);
 

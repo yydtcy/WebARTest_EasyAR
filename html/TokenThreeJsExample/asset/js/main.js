@@ -13,7 +13,7 @@ const MainScene = function(){
     this.t1 = new Date().getTime(); 
     this.stats = new Stats();
     this.group = new THREE.Group();
-    this.particlenew THREE.Sprite( material );
+    this.particle=new THREE.Sprite( material );
     this.geometryPartical = new THREE.SphereGeometry( 5, 20, 20 );
     this.mouseX = 0;
     this.mouseY = 0;

@@ -295,13 +295,13 @@ const MainScene = function(){
         //this.initGui();
         this.initRender();
         //this.initScene();
-        this.initCamera();
-        this.initModel();
-        this.initLight();
-        this.initControls();
-        this.initStats();
+        //this.initCamera();
+        //this.initModel();
+        //this.initLight();
+        //this.initControls();
+        //this.initStats();
     
-        this.animate();
+        //this.animate();
         window.onresize = onWindowResize;
     };
 

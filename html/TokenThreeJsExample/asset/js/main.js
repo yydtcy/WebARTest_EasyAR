@@ -302,7 +302,7 @@ const MainScene = function(){
         //this.initStats();
     
         //this.animate();
-        window.onresize = onWindowResize;
+        //window.onresize = onWindowResize;
     };
 
 };

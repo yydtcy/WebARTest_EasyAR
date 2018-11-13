@@ -293,7 +293,7 @@ const MainScene = function(){
     this.draw=function() {
         webAR.trace('$$$$$$$');
         //this.initGui();
-       // this.initRender();
+        this.initRender();
         //this.initScene();
         //this.initCamera();
         //this.initModel();

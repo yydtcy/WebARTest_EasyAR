@@ -4,28 +4,7 @@ const MainScene = function(){
     this.renderer = new THREE.WebGLRenderer({antialias:true, alpha: true});
     this.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
     this.scene = new THREE.Scene();
-    this.controls = new THREE.OrbitControls( this.camera, this.renderer.domElement );
-    this.helper = new THREE.AxesHelper(50);
-    this.fbx_loader = new THREE.FBXLoader();
-
-    this.arraCube=[];
-    
-    this.t1 = new Date().getTime(); 
-    this.stats = new Stats();
-    this.group = new THREE.Group();
-    this.particle=new THREE.Sprite( material );
-    this.geometryPartical = new THREE.SphereGeometry( 5, 20, 20 );
-    this.mouseX = 0;
-    this.mouseY = 0;
-    this.clock = new THREE.Clock();
-    this.delta;
-    this.speed;
-    this.lastdot = 0;
-    this.windowHalfX = window.innerWidth / 2;
-    this.windowHalfY = window.innerHeight / 2;
-    this.raycaster = new THREE.Raycaster();
-    this.mouse = new THREE.Vector2();
-
+    var arraCube=[];
     this.initRender=function() {
 
        //renderer = new THREE.CanvasRenderer({antialias:true});
@@ -81,6 +60,7 @@ const MainScene = function(){
 
         webAR.trace('initModel');
         //辅助工具
+        var helper = new THREE.AxesHelper(50);
         this.scene.add(helper);
     
         /*var loader = new THREE.ColladaLoader();
@@ -93,6 +73,8 @@ const MainScene = function(){
             render();
         });*/
     
+    
+        var fbx_loader = new THREE.FBXLoader();
     
         fbx_loader.load('asset/model/trex_v3.fbx', function(object) {
             object.scale.multiplyScalar(0.03);    // 缩放模型大小
@@ -149,6 +131,7 @@ const MainScene = function(){
 
     //初始化性能插件
     this.initStats=function() {
+        var stats = new Stats();
         document.body.appendChild(stats.dom);
     };
 
@@ -214,6 +197,16 @@ const MainScene = function(){
         this.scene.remove(par);
     };
 
+    var t1 = new Date().getTime(); 
+    var stats;
+    var group, particle;
+    var geometryPartical;
+    var mouseX = 0, mouseY = 0;
+    var clock = new THREE.Clock();
+    var delta,speed;
+    var lastdot = 0;
+    var windowHalfX = window.innerWidth / 2;
+    var windowHalfY = window.innerHeight / 2;
 
     this.init=function(pos) {
 
@@ -227,10 +220,12 @@ const MainScene = function(){
     
         };
     
+    
+        group = new THREE.Group();
         this.scene.add( group );
     
         //创建一个球型用作最后的形状
-        //geometryPartical = new THREE.SphereGeometry( 5, 20, 20 );
+        geometryPartical = new THREE.SphereGeometry( 5, 20, 20 );
         var vl = geometryPartical.vertices.length;
     
         for ( var i = 0; i < vl; i++ ) {
@@ -242,7 +237,7 @@ const MainScene = function(){
                 program:program
             } );
     
-            //particle = new THREE.Sprite( material );
+            particle = new THREE.Sprite( material );
             particle.position.x = pos.x;
             particle.position.y = pos.y;
             particle.position.z = pos.z;
@@ -264,6 +259,9 @@ const MainScene = function(){
     this.fsin=function(x){     //正弦函数
         return 50*Math.sin(0.8*x*Math.PI/180);
     };
+
+    var raycaster = new THREE.Raycaster();
+    var mouse = new THREE.Vector2();
 
     this.onMouseDown=function( event ) {
  
@@ -297,11 +295,11 @@ const MainScene = function(){
         this.initGui();
         this.initRender();
         //this.initScene();
-        this.initCamera();
-        this.initModel();
-        this.initLight();
-        this.initControls();
-        this.initStats();
+        //this.initCamera();
+       // this.initModel();
+        //this.initLight();
+        //this.initControls();
+        //this.initStats();
     
         this.animate();
         window.onresize = onWindowResize;

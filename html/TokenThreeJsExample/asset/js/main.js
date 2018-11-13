@@ -293,15 +293,15 @@ const MainScene = function(){
     this.draw=function() {
         webAR.trace('$$$$$$$');
         //this.initGui();
-       // this.initRender();
-        //this.initScene();
-        //this.initCamera();
-        //this.initModel();
-        //this.initLight();
-        //this.initControls();
-        //this.initStats();
+        this.initRender();
+        this.initScene();
+        this.initCamera();
+        this.initModel();
+        this.initLight();
+        this.initControls();
+        this.initStats();
     
-        //this.animate();
+        this.animate();
         window.onresize = onWindowResize;
     };
 

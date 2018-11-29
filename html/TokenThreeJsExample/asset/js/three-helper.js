@@ -30,7 +30,7 @@ const ThreeHelper = function(){
     this.render = function() {
         this.renderer.render(this.scene, this.camera);
 
-        //this.move();
+        this.move();
 
         for (const mixer of this.mixers) {
             mixer.update(this.clock.getDelta());

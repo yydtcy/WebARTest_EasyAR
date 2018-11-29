@@ -69,7 +69,7 @@ const ThreeHelper = function(){
         webAR.trace('啥情况0');
     }
 
-    this.initCube=function(){
+    function initCube(){
         webAR.trace('啥情况1');
         //if(i<50)
         //{

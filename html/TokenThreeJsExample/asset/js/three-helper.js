@@ -61,7 +61,7 @@ const ThreeHelper = function(){
     //辅助工具
         var helper = new THREE.AxesHelper(50);
         this.scene.add(helper);
-        flag = setInterval(initCube, 1000);
+        flag = setInterval(this.initCube, 1000);
     }
 
     var cube;
@@ -83,7 +83,7 @@ const ThreeHelper = function(){
           cube.position.z=parseInt(Math.random()*40-20);
           cube.name="cube_"+i.toString();
           arraCube.push(cube);
-          scene.add(cube);
+          this.scene.add(cube);
           i++;
         }
         else 

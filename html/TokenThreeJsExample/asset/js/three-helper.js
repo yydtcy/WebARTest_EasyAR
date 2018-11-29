@@ -57,7 +57,7 @@ const ThreeHelper = function(){
     };
 
     var flag;
-    var cube;
+    //var cube;
     var i=0;
     var arraCube=[];
     this.initModel=function() {
@@ -83,7 +83,7 @@ const ThreeHelper = function(){
               specular:  0xC0C0C0,shininess:5,map: texture
           });
           webAR.trace('啥情况4');
-          cube = new THREE.Mesh(geometry, material);
+          var cube = new THREE.Mesh(geometry, material);
           webAR.trace('啥情况5');
           cube.position.x=0;//3*parseInt(Math.random()*10-5);
           webAR.trace('啥情况6');

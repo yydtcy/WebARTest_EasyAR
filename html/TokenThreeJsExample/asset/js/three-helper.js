@@ -54,6 +54,17 @@ const ThreeHelper = function(){
         })
     };
 
+    var flag;
+    this.initModel=function() {
+    //辅助工具
+        var helper = new THREE.AxesHelper(50);
+        scene.add(helper);
+    }
+
+    this.draw=function(){
+        this.initModel();
+    }
+
     this.render();
 };
 

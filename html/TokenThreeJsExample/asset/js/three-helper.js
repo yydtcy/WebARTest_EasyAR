@@ -69,8 +69,8 @@ const ThreeHelper = function(){
 
     this.initCube=function(){
 
-        if(i<50)
-        {
+        //if(i<50)
+        //{
         // 绘制一个矩形
           var geometry=new THREE.CubeGeometry(3, 4, 0.2);
           var texture = THREE.ImageUtils.loadTexture('asset/Texture/hb.jpg');
@@ -85,11 +85,11 @@ const ThreeHelper = function(){
           arraCube.push(cube);
           this.scene.add(cube);
           i++;
-        }
-        else 
-        {
-            //clearInterval(flag);
-        }
+        //}
+       // else 
+       // {
+        //    clearInterval(flag);
+       // }
     
     }
 

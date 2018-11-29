@@ -58,7 +58,7 @@ const ThreeHelper = function(){
     this.initModel=function() {
     //辅助工具
         var helper = new THREE.AxesHelper(50);
-        scene.add(helper);
+        this.scene.add(helper);s
     }
 
     this.draw=function(){

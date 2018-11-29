@@ -71,6 +71,7 @@ const ThreeHelper = function(){
 
     function initCube(){
         webAR.trace('啥情况1');
+        webAR.trace(i);
         if(i<50)
         {
          绘制一个矩形

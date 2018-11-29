@@ -57,13 +57,14 @@ const ThreeHelper = function(){
     };
 
     var flag;
+    var cube;
+    var arraCube=[];
     this.initModel=function() {
     //辅助工具
         var helper = new THREE.AxesHelper(50);
         this.scene.add(helper);
         //flag = setInterval(this.initCube, 1000);
-        var cube;
-        var arraCube=[];
+
         var geometry=new THREE.CubeGeometry(3, 4, 0.2);
         var texture = THREE.ImageUtils.loadTexture('asset/Texture/hb.jpg');
         var material=new THREE.MeshPhongMaterial({

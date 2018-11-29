@@ -64,7 +64,7 @@ const ThreeHelper = function(){
     //辅助工具
         var helper = new THREE.AxesHelper(50);
         this.scene.add(helper);
-        flag = window.setInterval("initCube()", 1000);
+        flag = window.setInterval(initCube, 1000);
     }
 
     this.initCube=function(){
@@ -84,6 +84,7 @@ const ThreeHelper = function(){
           cube.name="cube_";//+i.toString();
           arraCube.push(cube);
           this.scene.add(cube);
+          webAR.trace('啥情况');
           i++;
         //}
        // else 

@@ -104,6 +104,7 @@ const ThreeHelper = function(){
         {
             clearInterval(flag);
         }
+        webAR.trace('啥情况~~~');
     
     }
 

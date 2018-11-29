@@ -71,7 +71,7 @@ const ThreeHelper = function(){
 
     function initCube(){
         webAR.trace('啥情况1');
-        if(i<2)
+        if(i<50)
         {
          绘制一个矩形
           var geometry=new THREE.CubeGeometry(3, 4, 0.2);

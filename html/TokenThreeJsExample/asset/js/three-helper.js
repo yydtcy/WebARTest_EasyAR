@@ -30,6 +30,8 @@ const ThreeHelper = function(){
     this.render = function() {
         this.renderer.render(this.scene, this.camera);
 
+        this.move();
+
         for (const mixer of this.mixers) {
             mixer.update(this.clock.getDelta());
         }
@@ -58,7 +60,48 @@ const ThreeHelper = function(){
     this.initModel=function() {
     //辅助工具
         var helper = new THREE.AxesHelper(50);
-        this.scene.add(helper);s
+        this.scene.add(helper);
+        flag = setInterval(initCube, 1000);
+    }
+
+    var cube;
+    var i=0;
+    var arraCube=[];
+    this.initCube=function(){
+
+        if(i<50)
+        {
+        // 绘制一个矩形
+          var geometry=new THREE.CubeGeometry(3, 4, 0.2);
+          var texture = THREE.ImageUtils.loadTexture('asset/Texture/hb.jpg');
+          var material=new THREE.MeshPhongMaterial({
+              specular:  0xC0C0C0,shininess:5,map: texture
+          });
+          cube = new THREE.Mesh(geometry, material);
+          cube.position.x=3*parseInt(Math.random()*10-5);
+          cube.position.y=20;
+          cube.position.z=parseInt(Math.random()*40-20);
+          cube.name="cube_"+i.toString();
+          arraCube.push(cube);
+          scene.add(cube);
+          i++;
+        }
+        else 
+        {
+            clearInterval(flag);
+        }
+    
+    }
+
+    this.move=function(){
+        for(var p=0;p<arraCube.length;p++)
+        {
+            if(arraCube[p]!=null)
+            {
+                arraCube[p].position.y=arraCube[p].position.y-0.3;
+            }
+        }
+    
     }
 
     this.draw=function(){

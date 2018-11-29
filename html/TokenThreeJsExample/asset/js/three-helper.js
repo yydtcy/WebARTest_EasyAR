@@ -59,7 +59,7 @@ const ThreeHelper = function(){
     var flag;
     var cube;
     var i=0;
-    //var arraCube=[];
+    var arraCube=[];
     this.initModel=function() {
     //辅助工具
         var helper = new THREE.AxesHelper(50);

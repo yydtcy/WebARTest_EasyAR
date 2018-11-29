@@ -12,8 +12,8 @@ const ThreeHelper = function(){
     this.renderer.domElement.setAttribute('class', 'mainCanvas');
     document.body.appendChild(this.renderer.domElement);
 
-    this.scene = new THREE.Scene();
-    this.scene.add(new THREE.AmbientLight(0xFFFFFF));
+    var scene = new THREE.Scene();
+    scene.add(new THREE.AmbientLight(0xFFFFFF));
 
     const control = new THREE.OrbitControls(this.camera, this.renderer.domElement);
     control.update();
@@ -28,7 +28,7 @@ const ThreeHelper = function(){
     }, false);
 
     this.render = function() {
-        this.renderer.render(this.scene, this.camera);
+        this.renderer.render(scene, this.camera);
 
         //this.move();
 
@@ -46,7 +46,7 @@ const ThreeHelper = function(){
         loader.load(modelUrl, (object) => {
             object.scale.setScalar(0.02);
             object.position.set(0, 0, 0);
-            this.scene.add(object);
+            scene.add(object);
 
             if (object.animations.length > 0) {
                 object.mixer = new THREE.AnimationMixer(object);
@@ -63,7 +63,7 @@ const ThreeHelper = function(){
     this.initModel=function() {
     //辅助工具
         var helper = new THREE.AxesHelper(50);
-        this.scene.add(helper);
+        scene.add(helper);
         webAR.trace('啥情况');
         flag = window.setInterval(initCube, 1000);
         webAR.trace('啥情况0');

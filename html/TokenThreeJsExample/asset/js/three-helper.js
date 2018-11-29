@@ -57,6 +57,9 @@ const ThreeHelper = function(){
     };
 
     var flag;
+    var cube;
+    var i=0;
+    var arraCube=[];
     this.initModel=function() {
     //辅助工具
         var helper = new THREE.AxesHelper(50);
@@ -64,9 +67,6 @@ const ThreeHelper = function(){
         flag = setInterval(this.initCube, 1000);
     }
 
-    var cube;
-    var i=0;
-    var arraCube=[];
     this.initCube=function(){
 
         if(i<50)

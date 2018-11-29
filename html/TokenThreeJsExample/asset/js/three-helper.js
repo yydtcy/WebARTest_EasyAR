@@ -71,9 +71,9 @@ const ThreeHelper = function(){
 
     function initCube(){
         webAR.trace('啥情况1');
-        //if(i<50)
-        //{
-        // 绘制一个矩形
+        if(i<1)
+        {
+         绘制一个矩形
           var geometry=new THREE.CubeGeometry(3, 4, 0.2);
           webAR.trace('啥情况2');
           var texture = THREE.ImageUtils.loadTexture('asset/Texture/hb.jpg');
@@ -98,11 +98,11 @@ const ThreeHelper = function(){
           webAR.trace('啥情况11');
           i++;
           webAR.trace('啥情况12');
-        //}
-       // else 
-       // {
-        //    clearInterval(flag);
-       // }
+        }
+        else 
+        {
+            clearInterval(flag);
+        }
     
     }
 

@@ -64,7 +64,7 @@ const ThreeHelper = function(){
     //辅助工具
         var helper = new THREE.AxesHelper(50);
         this.scene.add(helper);
-        flag = setInterval("initCube()", 1000);
+        flag = window.setInterval("initCube()", 1000);
     }
 
     this.initCube=function(){

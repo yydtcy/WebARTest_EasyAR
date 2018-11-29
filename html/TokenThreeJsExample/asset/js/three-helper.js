@@ -64,28 +64,40 @@ const ThreeHelper = function(){
     //辅助工具
         var helper = new THREE.AxesHelper(50);
         this.scene.add(helper);
+        webAR.trace('啥情况');
         flag = window.setInterval(initCube, 1000);
+        webAR.trace('啥情况0');
     }
 
     this.initCube=function(){
-
+        webAR.trace('啥情况1');
         //if(i<50)
         //{
         // 绘制一个矩形
           var geometry=new THREE.CubeGeometry(3, 4, 0.2);
+          webAR.trace('啥情况2');
           var texture = THREE.ImageUtils.loadTexture('asset/Texture/hb.jpg');
+          webAR.trace('啥情况3');
           var material=new THREE.MeshPhongMaterial({
               specular:  0xC0C0C0,shininess:5,map: texture
           });
+          webAR.trace('啥情况4');
           cube = new THREE.Mesh(geometry, material);
+          webAR.trace('啥情况5');
           cube.position.x=0;//3*parseInt(Math.random()*10-5);
+          webAR.trace('啥情况6');
           cube.position.y=0;//20;
+          webAR.trace('啥情况7');
           cube.position.z=0;//parseInt(Math.random()*40-20);
+          webAR.trace('啥情况8');
           cube.name="cube_";//+i.toString();
+          webAR.trace('啥情况9');
           arraCube.push(cube);
+          webAR.trace('啥情况10');
           this.scene.add(cube);
-          webAR.trace('啥情况');
+          webAR.trace('啥情况11');
           i++;
+          webAR.trace('啥情况12');
         //}
        // else 
        // {

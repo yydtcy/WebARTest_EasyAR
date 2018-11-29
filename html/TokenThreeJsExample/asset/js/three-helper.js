@@ -2,11 +2,6 @@
  * ThreeJS帮助类
  * @constructor
  */
-
-var flag;
-var cube;
-var i=0;
-var arraCube=[];
 const ThreeHelper = function(){
     this.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
     this.camera.position.set(-30, 30, 25);
@@ -35,7 +30,7 @@ const ThreeHelper = function(){
     this.render = function() {
         this.renderer.render(this.scene, this.camera);
 
-        this.move();
+        //this.move();
 
         for (const mixer of this.mixers) {
             mixer.update(this.clock.getDelta());
@@ -61,6 +56,10 @@ const ThreeHelper = function(){
         })
     };
 
+    var flag;
+    //var cube;
+    //var i=0;
+    //var arraCube=[];
     this.initModel=function() {
     //辅助工具
         var helper = new THREE.AxesHelper(50);
@@ -73,6 +72,7 @@ const ThreeHelper = function(){
         //if(i<50)
         //{
         // 绘制一个矩形
+        var cube;
           var geometry=new THREE.CubeGeometry(3, 4, 0.2);
           var texture = THREE.ImageUtils.loadTexture('asset/Texture/hb.jpg');
           var material=new THREE.MeshPhongMaterial({
@@ -83,9 +83,9 @@ const ThreeHelper = function(){
           cube.position.y=0;//20;
           cube.position.z=0;//parseInt(Math.random()*40-20);
           cube.name="cube_";//+i.toString();
-          arraCube.push(cube);
+          //arraCube.push(cube);
           this.scene.add(cube);
-          i++;
+         // i++;
         //}
        // else 
        // {

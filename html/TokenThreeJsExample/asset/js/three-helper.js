@@ -73,12 +73,12 @@ const ThreeHelper = function(){
         cube.position.x=0;//3*parseInt(Math.random()*10-5);
         cube.position.y=0;//20;
         cube.position.z=0;//parseInt(Math.random()*40-20);
-        cube.name="cube_"+i.toString();
+        cube.name="cube_";//+i.toString();
         arraCube.push(cube);
         this.scene.add(cube);
     }
 
-    var cube;
+    /*var cube;
     var i=0;
     var arraCube=[];
     this.initCube=function(){
@@ -105,7 +105,7 @@ const ThreeHelper = function(){
             clearInterval(flag);
         }
     
-    }
+    }*/
 
     this.move=function(){
         for(var p=0;p<arraCube.length;p++)

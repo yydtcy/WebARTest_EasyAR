@@ -30,7 +30,7 @@ const ThreeHelper = function(){
     this.render = function() {
         this.renderer.render(scene, this.camera);
 
-        //this.move();
+        this.move();
 
         for (const mixer of this.mixers) {
             mixer.update(this.clock.getDelta());
@@ -57,7 +57,7 @@ const ThreeHelper = function(){
     };
 
     var flag;
-    //var cube;
+    var cube;
     var i=0;
     var arraCube=[];
     this.initModel=function() {
@@ -72,7 +72,7 @@ const ThreeHelper = function(){
     function initCube(){
         webAR.trace('啥情况1');
         webAR.trace(i);
-        if(i<1)
+        if(i<50)
         {
          //绘制一个矩形
           var geometry=new THREE.CubeGeometry(3, 4, 0.2);
@@ -83,15 +83,15 @@ const ThreeHelper = function(){
               specular:  0xC0C0C0,shininess:5,map: texture
           });
           webAR.trace('啥情况4');
-          var cube = new THREE.Mesh(geometry, material);
+          cube = new THREE.Mesh(geometry, material);
           webAR.trace('啥情况5');
-          cube.position.x=0;//3*parseInt(Math.random()*10-5);
+          cube.position.x=3*parseInt(Math.random()*10-5);
           webAR.trace('啥情况6');
-          cube.position.y=0;//20;
+          cube.position.y=20;
           webAR.trace('啥情况7');
-          cube.position.z=0;//parseInt(Math.random()*40-20);
+          cube.position.z=parseInt(Math.random()*40-20);
           webAR.trace('啥情况8');
-          cube.name="cube_";//+i.toString();
+          cube.name="cube_"+i.toString();
           webAR.trace('啥情况9');
           arraCube.push(cube);
           webAR.trace('啥情况10');

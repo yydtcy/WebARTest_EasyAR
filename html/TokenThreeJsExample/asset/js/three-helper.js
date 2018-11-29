@@ -2,6 +2,11 @@
  * ThreeJS帮助类
  * @constructor
  */
+
+var flag;
+var cube;
+var i=0;
+var arraCube=[];
 const ThreeHelper = function(){
     this.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
     this.camera.position.set(-30, 30, 25);
@@ -56,10 +61,6 @@ const ThreeHelper = function(){
         })
     };
 
-    var flag;
-    var cube;
-    var i=0;
-    var arraCube=[];
     this.initModel=function() {
     //辅助工具
         var helper = new THREE.AxesHelper(50);

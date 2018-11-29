@@ -93,9 +93,9 @@ const ThreeHelper = function(){
           webAR.trace('啥情况8');
           cube.name="cube_";//+i.toString();
           webAR.trace('啥情况9');
-          //arraCube.push(cube);
+          arraCube.push(cube);
           webAR.trace('啥情况10');
-          this.scene.add(cube);
+          scene.add(cube);
           webAR.trace('啥情况11');
           i++;
           webAR.trace('啥情况12');

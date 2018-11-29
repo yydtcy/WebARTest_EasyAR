@@ -57,29 +57,14 @@ const ThreeHelper = function(){
     };
 
     var flag;
-    var cube;
-    var arraCube=[];
     this.initModel=function() {
     //辅助工具
         var helper = new THREE.AxesHelper(50);
         this.scene.add(helper);
-        //flag = setInterval(this.initCube, 1000);
-
-        var geometry=new THREE.CubeGeometry(3, 4, 0.2);
-        var texture = THREE.ImageUtils.loadTexture('asset/Texture/hb.jpg');
-        var material=new THREE.MeshPhongMaterial({
-            specular:  0xC0C0C0,shininess:5,map: texture
-        });
-        cube = new THREE.Mesh(geometry, material);
-        cube.position.x=0;//3*parseInt(Math.random()*10-5);
-        cube.position.y=0;//20;
-        cube.position.z=0;//parseInt(Math.random()*40-20);
-        cube.name="cube_";//+i.toString();
-        arraCube.push(cube);
-        this.scene.add(cube);
+        flag = setInterval(this.initCube, 1000);
     }
 
-    /*var cube;
+    var cube;
     var i=0;
     var arraCube=[];
     this.initCube=function(){
@@ -93,10 +78,10 @@ const ThreeHelper = function(){
               specular:  0xC0C0C0,shininess:5,map: texture
           });
           cube = new THREE.Mesh(geometry, material);
-          cube.position.x=3*parseInt(Math.random()*10-5);
-          cube.position.y=20;
-          cube.position.z=parseInt(Math.random()*40-20);
-          cube.name="cube_"+i.toString();
+          cube.position.x=0;//3*parseInt(Math.random()*10-5);
+          cube.position.y=0;//20;
+          cube.position.z=0;//parseInt(Math.random()*40-20);
+          cube.name="cube_";//+i.toString();
           arraCube.push(cube);
           this.scene.add(cube);
           i++;
@@ -106,7 +91,7 @@ const ThreeHelper = function(){
             clearInterval(flag);
         }
     
-    }*/
+    }
 
     this.move=function(){
         for(var p=0;p<arraCube.length;p++)

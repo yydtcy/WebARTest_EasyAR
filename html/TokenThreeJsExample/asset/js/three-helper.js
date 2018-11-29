@@ -30,7 +30,7 @@ const ThreeHelper = function(){
     this.render = function() {
         this.renderer.render(this.scene, this.camera);
 
-        this.move();
+        //this.move();
 
         for (const mixer of this.mixers) {
             mixer.update(this.clock.getDelta());
@@ -61,7 +61,21 @@ const ThreeHelper = function(){
     //辅助工具
         var helper = new THREE.AxesHelper(50);
         this.scene.add(helper);
-        flag = setInterval(this.initCube, 1000);
+        //flag = setInterval(this.initCube, 1000);
+        var cube;
+        var arraCube=[];
+        var geometry=new THREE.CubeGeometry(3, 4, 0.2);
+        var texture = THREE.ImageUtils.loadTexture('asset/Texture/hb.jpg');
+        var material=new THREE.MeshPhongMaterial({
+            specular:  0xC0C0C0,shininess:5,map: texture
+        });
+        cube = new THREE.Mesh(geometry, material);
+        cube.position.x=0;//3*parseInt(Math.random()*10-5);
+        cube.position.y=0;//20;
+        cube.position.z=0;//parseInt(Math.random()*40-20);
+        cube.name="cube_"+i.toString();
+        arraCube.push(cube);
+        this.scene.add(cube);
     }
 
     var cube;

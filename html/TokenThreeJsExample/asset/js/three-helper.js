@@ -3,19 +3,19 @@
  * @constructor
  */
 const ThreeHelper = function(){
-    this.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-    this.camera.position.set(-30, 30, 25);
-    this.camera.lookAt(new THREE.Vector3(0, 0, 0));
+    var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(-30, 30, 25);
+    camera.lookAt(new THREE.Vector3(0, 0, 0));
 
-    this.renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
-    this.renderer.domElement.setAttribute('class', 'mainCanvas');
-    document.body.appendChild(this.renderer.domElement);
+    var renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.domElement.setAttribute('class', 'mainCanvas');
+    document.body.appendChild(renderer.domElement);
 
     var scene = new THREE.Scene();
     scene.add(new THREE.AmbientLight(0xFFFFFF));
 
-    const control = new THREE.OrbitControls(this.camera, this.renderer.domElement);
+    const control = new THREE.OrbitControls(camera, renderer.domElement);
     control.update();
 
     // 在容器上注册事件，这里container也可以换成document
@@ -25,9 +25,9 @@ const ThreeHelper = function(){
     this.mixers = [];
 
     window.addEventListener('resize', () => {
-        this.camera.aspect = window.innerWidth / window.innerHeight;
-        this.camera.updateProjectionMatrix();
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
     }, false);
 
     //初始化性能插件
@@ -38,7 +38,7 @@ const ThreeHelper = function(){
     }
 
     this.render = function() {
-        this.renderer.render(scene, this.camera);
+        renderer.render(scene, camera);
 
         this.move();
 
@@ -185,12 +185,12 @@ const ThreeHelper = function(){
 
     var raycaster = new THREE.Raycaster();
     var mouse = new THREE.Vector2();
-    this.onMouseDown=function( event ) {
+    function onMouseDown( event ) {
         //webAR.trace('点击成功1');
-        mouse.x = ( event.clientX / this.renderer.domElement.clientWidth ) * 2 - 1;
-        mouse.y = - ( event.clientY / this.renderer.domElement.clientHeight ) * 2 + 1;
+        mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
+        mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
         //console.log(scene.children);
-        raycaster.setFromCamera( mouse, this.camera );
+        raycaster.setFromCamera( mouse, camera );
      
         var intersects = raycaster.intersectObjects( scene.children );
         webAR.trace('点击成功1');

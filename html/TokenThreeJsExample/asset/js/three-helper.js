@@ -40,7 +40,7 @@ const ThreeHelper = function(){
         this.move();
 
         //更新性能插件
-        stats.update();
+        this.stats.update();
 
         for (const mixer of this.mixers) {
             mixer.update(this.clock.getDelta());

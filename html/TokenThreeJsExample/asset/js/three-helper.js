@@ -131,7 +131,7 @@ const ThreeHelper = function(){
     var windowHalfX = window.innerWidth / 2;
     var windowHalfY = window.innerHeight / 2;
 
-    this.init=function(pos) {
+    function init(pos) {
 
         var PI2 = Math.PI * 2;
         //画点
@@ -179,7 +179,7 @@ const ThreeHelper = function(){
        // scene.remove(group);
     }
 
-    this.fsin=function(x){     //正弦函数
+    function fsin(x){     //正弦函数
         return 50*Math.sin(0.8*x*Math.PI/180);
     }
 
@@ -193,19 +193,16 @@ const ThreeHelper = function(){
         raycaster.setFromCamera( mouse, camera );
      
         var intersects = raycaster.intersectObjects( scene.children );
-        webAR.trace('点击成功1');
         if ( intersects.length > 0 ) {
-            webAR.trace('点击成功2');
             // 点击立方体时，将立方体变为红色
             for(var l=0;l<intersects.length;l++)
             {       
                 if(intersects[l].object.name.substr(0,5)=="cube_")
                 {               
                     //intersects[l].object.material.color.setHex( 0x00ff00 );
-                    webAR.trace('点击成功3');
                     delete arraCube[parseInt(intersects[l].object.name.substr(5,intersects[l].object.name.length-5))];
                     scene.remove(intersects[l].object);
-                    this.init(intersects[l].object.position);
+                    init(intersects[l].object.position);
                     break;
                 }
                 

@@ -185,7 +185,7 @@ const ThreeHelper = function(){
 
     var raycaster = new THREE.Raycaster();
     var mouse = new THREE.Vector2();
-    function onMouseDown( event ) {
+    this.onMouseDown=function( event ) {
         //webAR.trace('点击成功1');
         mouse.x = ( event.clientX / this.renderer.domElement.clientWidth ) * 2 - 1;
         mouse.y = - ( event.clientY / this.renderer.domElement.clientHeight ) * 2 + 1;

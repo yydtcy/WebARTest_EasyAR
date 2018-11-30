@@ -18,6 +18,9 @@ const ThreeHelper = function(){
     const control = new THREE.OrbitControls(this.camera, this.renderer.domElement);
     control.update();
 
+    // 在容器上注册事件，这里container也可以换成document
+    document.body.addEventListener( 'mousedown', onMouseDown, false );
+
     this.clock = new THREE.Clock();
     this.mixers = [];
 
@@ -113,7 +116,102 @@ const ThreeHelper = function(){
     
     }
 
+    function removeParticle(par){
+        scene.remove(par);
+    }
+
+    var t1 = new Date().getTime(); 
+    var group, particle;
+    var geometryPartical;
+    var mouseX = 0, mouseY = 0;
+    var clock = new THREE.Clock();
+    var delta,speed;
+    var lastdot = 0;
+
+    var windowHalfX = window.innerWidth / 2;
+    var windowHalfY = window.innerHeight / 2;
+
+    this.init=function(pos) {
+
+        var PI2 = Math.PI * 2;
+        //画点
+        var program = function ( context ) {
     
+            context.beginPath();
+            context.arc( 0, 0, 0.5, 0, PI2, true );
+            context.fill();
+    
+        };
+    
+    
+        group = new THREE.Group();
+        scene.add( group );
+    
+        //创建一个球型用作最后的形状
+        geometryPartical = new THREE.SphereGeometry( 5, 20, 20 );
+        var vl = geometryPartical.vertices.length;
+    
+        for ( var i = 0; i < vl; i++ ) {
+            //为每个点附上材质
+            //var texture = THREE.ImageUtils.loadTexture('asset/Texture/hb.jpg');
+            var material = new THREE.SpriteMaterial( {
+                //map: texture,
+                color: Math.random() * 0x808008 + 0x808080,
+                program:program
+            } );
+    
+            particle = new THREE.Sprite( material );
+            particle.position.x = pos.x;
+            particle.position.y = pos.y;
+            particle.position.z = pos.z;
+            particle.scale.x = particle.scale.y = Math.random() * 0.2 + 0.1;
+            var timerandom = 1*Math.random();
+            //为每个点加动画
+    
+    
+            TweenMax.to(
+                particle.position,
+                timerandom,
+                {x:geometryPartical.vertices[i].x+pos.x+(Math.random()*2-1)*10,y:geometryPartical.vertices[i].y+pos.y+(Math.random()*2-1)*10,z:geometryPartical.vertices[i].z+pos.z+(Math.random()*2-1)*10,delay:0.0,onComplete:removeParticle,onCompleteParams:Array(particle)} 
+            );
+            scene.add( particle );
+        }
+       // scene.remove(group);
+    }
+
+    this.fsin=function(x){     //正弦函数
+        return 50*Math.sin(0.8*x*Math.PI/180);
+    }
+
+    var raycaster = new THREE.Raycaster();
+    var mouse = new THREE.Vector2();
+    function onMouseDown( event ) {
+        webAR.trace('点击成功1');
+        mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
+        mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
+        //console.log(scene.children);
+        raycaster.setFromCamera( mouse, camera );
+     
+        var intersects = raycaster.intersectObjects( scene.children );
+     
+        if ( intersects.length > 0 ) {
+            webAR.trace('点击成功2');
+            // 点击立方体时，将立方体变为红色
+            for(var l=0;l<intersects.length;l++)
+            {       
+                if(intersects[l].object.name.substr(0,5)=="cube_")
+                {               
+                    //intersects[l].object.material.color.setHex( 0x00ff00 );
+                    webAR.trace('点击成功3');
+                    delete arraCube[parseInt(intersects[l].object.name.substr(5,intersects[l].object.name.length-5))];
+                    scene.remove(intersects[l].object);
+                    this.init(intersects[l].object.position);
+                    break;
+                }
+                
+            }
+        } 
+    }
 
     this.draw=function(){
         this.initModel();
@@ -123,101 +221,4 @@ const ThreeHelper = function(){
 
     
 };
-
-function removeParticle(par){
-    scene.remove(par);
-}
-
-var t1 = new Date().getTime(); 
-var group, particle;
-var geometryPartical;
-var mouseX = 0, mouseY = 0;
-var clock = new THREE.Clock();
-var delta,speed;
-var lastdot = 0;
-
-var windowHalfX = window.innerWidth / 2;
-var windowHalfY = window.innerHeight / 2;
-
-function init(pos) {
-
-    var PI2 = Math.PI * 2;
-    //画点
-    var program = function ( context ) {
-
-        context.beginPath();
-        context.arc( 0, 0, 0.5, 0, PI2, true );
-        context.fill();
-
-    };
-
-
-    group = new THREE.Group();
-    scene.add( group );
-
-    //创建一个球型用作最后的形状
-    geometryPartical = new THREE.SphereGeometry( 5, 20, 20 );
-    var vl = geometryPartical.vertices.length;
-
-    for ( var i = 0; i < vl; i++ ) {
-        //为每个点附上材质
-        //var texture = THREE.ImageUtils.loadTexture('asset/Texture/hb.jpg');
-        var material = new THREE.SpriteMaterial( {
-            //map: texture,
-            color: Math.random() * 0x808008 + 0x808080,
-            program:program
-        } );
-
-        particle = new THREE.Sprite( material );
-        particle.position.x = pos.x;
-        particle.position.y = pos.y;
-        particle.position.z = pos.z;
-        particle.scale.x = particle.scale.y = Math.random() * 0.2 + 0.1;
-        var timerandom = 1*Math.random();
-        //为每个点加动画
-
-
-        TweenMax.to(
-            particle.position,
-            timerandom,
-            {x:geometryPartical.vertices[i].x+pos.x+(Math.random()*2-1)*10,y:geometryPartical.vertices[i].y+pos.y+(Math.random()*2-1)*10,z:geometryPartical.vertices[i].z+pos.z+(Math.random()*2-1)*10,delay:0.0,onComplete:removeParticle,onCompleteParams:Array(particle)} 
-        );
-        scene.add( particle );
-    }
-   // scene.remove(group);
-}
-
-function fsin(x){     //正弦函数
-    return 50*Math.sin(0.8*x*Math.PI/180);
-}
-
-var raycaster = new THREE.Raycaster();
-var mouse = new THREE.Vector2();
-function onMouseDown( event ) {
-    webAR.trace('点击成功1');
-    mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
-    mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
-    //console.log(scene.children);
-    raycaster.setFromCamera( mouse, camera );
- 
-    var intersects = raycaster.intersectObjects( scene.children );
- 
-    if ( intersects.length > 0 ) {
-        webAR.trace('点击成功2');
-        // 点击立方体时，将立方体变为红色
-        for(var l=0;l<intersects.length;l++)
-        {       
-            if(intersects[l].object.name.substr(0,5)=="cube_")
-            {               
-                //intersects[l].object.material.color.setHex( 0x00ff00 );
-                webAR.trace('点击成功3');
-                delete arraCube[parseInt(intersects[l].object.name.substr(5,intersects[l].object.name.length-5))];
-                scene.remove(intersects[l].object);
-                init(intersects[l].object.position);
-                break;
-            }
-            
-        }
-    } 
-}
 

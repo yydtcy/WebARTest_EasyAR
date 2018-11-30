@@ -64,47 +64,31 @@ const ThreeHelper = function(){
     //辅助工具
         var helper = new THREE.AxesHelper(50);
         scene.add(helper);
-        webAR.trace('啥情况');
         flag = window.setInterval(initCube, 1000);
-        webAR.trace('啥情况0');
     }
 
     function initCube(){
-        webAR.trace('啥情况1');
-        webAR.trace(i);
         if(i<50)
         {
          //绘制一个矩形
           var geometry=new THREE.CubeGeometry(3, 4, 0.2);
-          webAR.trace('啥情况2');
           var texture = THREE.ImageUtils.loadTexture('asset/Texture/hb.jpg');
-          webAR.trace('啥情况3');
           var material=new THREE.MeshPhongMaterial({
               specular:  0xC0C0C0,shininess:5,map: texture
           });
-          webAR.trace('啥情况4');
           cube = new THREE.Mesh(geometry, material);
-          webAR.trace('啥情况5');
           cube.position.x=3*parseInt(Math.random()*10-5);
-          webAR.trace('啥情况6');
           cube.position.y=20;
-          webAR.trace('啥情况7');
           cube.position.z=parseInt(Math.random()*40-20);
-          webAR.trace('啥情况8');
           cube.name="cube_"+i.toString();
-          webAR.trace('啥情况9');
           arraCube.push(cube);
-          webAR.trace('啥情况10');
-          scene.add(cube);
-          webAR.trace('啥情况11');
+          scene.add(cube);//此处setInterval中不能用this.scene
           i++;
-          webAR.trace('啥情况12');
         }
         else 
         {
             clearInterval(flag);
         }
-        webAR.trace('啥情况~~~');
     
     }
 
@@ -119,8 +103,16 @@ const ThreeHelper = function(){
     
     }
 
+    //初始化性能插件
+    var stats;
+    this.initStats=function() {
+        stats = new Stats();
+        document.body.appendChild(stats.dom);
+    }
+
     this.draw=function(){
         this.initModel();
+        this.initStats();
     }
 
     this.render();

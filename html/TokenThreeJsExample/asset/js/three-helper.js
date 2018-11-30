@@ -199,6 +199,7 @@ const ThreeHelper = function(){
                 if(intersects[l].object.name.substr(0,5)=="cube_")
                 {               
                     //intersects[l].object.material.color.setHex( 0x00ff00 );
+                    webAR.trace('点击成功');
                     delete arraCube[parseInt(intersects[l].object.name.substr(5,intersects[l].object.name.length-5))];
                     scene.remove(intersects[l].object);
                     this.init(intersects[l].object.position);

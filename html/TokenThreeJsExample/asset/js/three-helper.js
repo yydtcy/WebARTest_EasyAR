@@ -27,6 +27,13 @@ const ThreeHelper = function(){
         this.renderer.setSize(window.innerWidth, window.innerHeight);
     }, false);
 
+    //初始化性能插件
+    var stats;
+    this.initStats=function() {
+        stats = new Stats();
+        document.body.appendChild(stats.dom);
+    }
+
     this.render = function() {
         this.renderer.render(scene, this.camera);
 
@@ -104,13 +111,6 @@ const ThreeHelper = function(){
             }
         }
     
-    }
-
-    //初始化性能插件
-    var stats;
-    this.initStats=function() {
-        stats = new Stats();
-        document.body.appendChild(stats.dom);
     }
 
     function removeParticle(par){

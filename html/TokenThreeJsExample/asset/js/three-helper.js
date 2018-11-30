@@ -128,7 +128,7 @@ const ThreeHelper = function(){
     var windowHalfX = window.innerWidth / 2;
     var windowHalfY = window.innerHeight / 2;
 
-    function init(pos) {
+    this.init=function(pos) {
 
         var PI2 = Math.PI * 2;
         //画点
@@ -176,7 +176,7 @@ const ThreeHelper = function(){
        // scene.remove(group);
     }
 
-    function fsin(x){     //正弦函数
+    this.fsin=function(x){     //正弦函数
         return 50*Math.sin(0.8*x*Math.PI/180);
     }
 
@@ -201,7 +201,7 @@ const ThreeHelper = function(){
                     //intersects[l].object.material.color.setHex( 0x00ff00 );
                     delete arraCube[parseInt(intersects[l].object.name.substr(5,intersects[l].object.name.length-5))];
                     scene.remove(intersects[l].object);
-                    init(intersects[l].object.position);
+                    this.init(intersects[l].object.position);
                     break;
                 }
                 

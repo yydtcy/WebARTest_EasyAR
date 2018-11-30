@@ -186,11 +186,11 @@ const ThreeHelper = function(){
     var raycaster = new THREE.Raycaster();
     var mouse = new THREE.Vector2();
     function onMouseDown( event ) {
-        webAR.trace('点击成功1');
-        mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
-        mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
+        //webAR.trace('点击成功1');
+        mouse.x = ( event.clientX / this.renderer.domElement.clientWidth ) * 2 - 1;
+        mouse.y = - ( event.clientY / this.renderer.domElement.clientHeight ) * 2 + 1;
         //console.log(scene.children);
-        raycaster.setFromCamera( mouse, camera );
+        raycaster.setFromCamera( mouse, this.camera );
      
         var intersects = raycaster.intersectObjects( scene.children );
      

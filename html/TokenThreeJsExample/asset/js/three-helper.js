@@ -18,6 +18,10 @@ const ThreeHelper = function(){
     const control = new THREE.OrbitControls(this.camera, this.renderer.domElement);
     control.update();
 
+    //初始化性能插件
+    var stats = new Stats();
+    document.body.appendChild(stats.dom);
+
     this.clock = new THREE.Clock();
     this.mixers = [];
 
@@ -27,20 +31,13 @@ const ThreeHelper = function(){
         this.renderer.setSize(window.innerWidth, window.innerHeight);
     }, false);
 
-    //初始化性能插件
-    var stats;
-    this.initStats=function() {
-        stats = new Stats();
-        document.body.appendChild(stats.dom);
-    }
-
     this.render = function() {
         this.renderer.render(scene, this.camera);
 
         this.move();
 
         //更新性能插件
-        this.stats.update();
+        stats.update();
 
         for (const mixer of this.mixers) {
             mixer.update(this.clock.getDelta());
@@ -211,7 +208,6 @@ const ThreeHelper = function(){
 
     this.draw=function(){
         this.initModel();
-        this.initStats();
     }
 
     this.render();

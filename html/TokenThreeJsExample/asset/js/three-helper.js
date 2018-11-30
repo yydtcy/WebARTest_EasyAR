@@ -193,7 +193,7 @@ const ThreeHelper = function(){
         raycaster.setFromCamera( mouse, this.camera );
      
         var intersects = raycaster.intersectObjects( scene.children );
-     
+        webAR.trace('点击成功1');
         if ( intersects.length > 0 ) {
             webAR.trace('点击成功2');
             // 点击立方体时，将立方体变为红色

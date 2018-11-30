@@ -183,7 +183,7 @@ const ThreeHelper = function(){
     var raycaster = new THREE.Raycaster();
     var mouse = new THREE.Vector2();
     function onMouseDown( event ) {
- 
+        webAR.trace('点击成功1');
         mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
         mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
         //console.log(scene.children);
@@ -192,14 +192,14 @@ const ThreeHelper = function(){
         var intersects = raycaster.intersectObjects( scene.children );
      
         if ( intersects.length > 0 ) {
-    
+            webAR.trace('点击成功2');
             // 点击立方体时，将立方体变为红色
             for(var l=0;l<intersects.length;l++)
             {       
                 if(intersects[l].object.name.substr(0,5)=="cube_")
                 {               
                     //intersects[l].object.material.color.setHex( 0x00ff00 );
-                    webAR.trace('点击成功');
+                    webAR.trace('点击成功3');
                     delete arraCube[parseInt(intersects[l].object.name.substr(5,intersects[l].object.name.length-5))];
                     scene.remove(intersects[l].object);
                     this.init(intersects[l].object.position);

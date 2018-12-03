@@ -37,7 +37,7 @@ const WebAR = function(interval, recognizeUrl, token) {
      */
     this.listCamera = function(videoDevice) {
         videoDeviceElement = videoDevice;
-
+        this.trace(videoDeviceElement.length + 1);
         return new Promise((resolve, reject) => {
             navigator.mediaDevices.enumerateDevices()
                 .then((devices) => {
@@ -46,8 +46,7 @@ const WebAR = function(interval, recognizeUrl, token) {
                             const option = document.createElement('option');
                             option.text = device.label || 'camera '+ (videoDeviceElement.length + 1).toString();
                             option.value = device.deviceId;
-                            this.trace("4");
-                            this.trace(videoDeviceElement.length + 1);
+
                             // 将摄像头id存储在select元素中，方便切换前、后置摄像头
                             videoDeviceElement.appendChild(option);
                         }

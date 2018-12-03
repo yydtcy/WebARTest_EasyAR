@@ -92,7 +92,7 @@ const WebAR = function(interval, recognizeUrl, token) {
             video: {deviceId: {exact: deviceId}}
         };
         this.trace("2");
-        this.trace(deviceId.);
+        this.trace(deviceId);
         canvasElement.setAttribute('width', videoSetting.width + 'px');
         canvasElement.setAttribute('height', videoSetting.height + 'px');
 

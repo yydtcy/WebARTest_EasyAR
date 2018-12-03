@@ -79,7 +79,7 @@ const WebAR = function(interval, recognizeUrl, token) {
      */
     this.openCamera = function(video, deviceId, setting) {
         this.trace("1");
-        this.trace(deviceId);
+        this.trace(deviceId.value);
         videoElement = video;
         if (setting) {
             videoSetting = setting;
@@ -92,7 +92,7 @@ const WebAR = function(interval, recognizeUrl, token) {
             video: {deviceId: {exact: deviceId}}
         };
         this.trace("2");
-        this.trace(deviceId);
+        this.trace(deviceId.value);
         canvasElement.setAttribute('width', videoSetting.width + 'px');
         canvasElement.setAttribute('height', videoSetting.height + 'px');
 

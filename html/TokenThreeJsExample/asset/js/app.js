@@ -18,7 +18,7 @@ document.querySelector('#openCamera').addEventListener('click', function(){
 
     const openCamera = (video, deviceId, videoSetting) => {
         webAR.trace("0");
-        webAR.trace(deviceId);
+        webAR.trace(deviceId.value);
         webAR.openCamera(video, deviceId, videoSetting)
             .then((msg) => {
                 // 打开摄像头成功
@@ -51,7 +51,8 @@ document.querySelector('#openCamera').addEventListener('click', function(){
             videoDevice.onchange = () => {
                 openCamera(video, videoDevice.value, videoSetting);
             };
-
+            webAR.trace("3");
+            webAR.trace(videoDevice.value);
             document.querySelector('#openCamera').style.display = 'none';
             document.querySelector('#start').style.display = 'inline-block';
             document.querySelector('#stop').style.display = 'inline-block';

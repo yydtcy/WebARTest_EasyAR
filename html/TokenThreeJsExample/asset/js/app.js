@@ -47,6 +47,8 @@ document.querySelector('#openCamera').addEventListener('click', function(){
     // 列出视频设备
     webAR.listCamera(videoDevice)
         .then(() => {
+            webAR.trace("~~~");
+            webAR.trace(videoDevice.length);
             openCamera(video, videoDevice.value, videoSetting);
             videoDevice.onchange = () => {
                 openCamera(video, videoDevice.value, videoSetting);

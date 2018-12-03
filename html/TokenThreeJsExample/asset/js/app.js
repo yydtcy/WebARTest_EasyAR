@@ -18,7 +18,7 @@ document.querySelector('#openCamera').addEventListener('click', function(){
 
     const openCamera = (video, deviceId, videoSetting) => {
         webAR.trace("0");
-        webAR.trace(deviceId.value);
+        webAR.trace(deviceId);
         webAR.openCamera(video, deviceId, videoSetting)
             .then((msg) => {
                 // 打开摄像头成功

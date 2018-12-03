@@ -4,7 +4,7 @@
  */
 const ThreeHelper = function(){
     var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 3000);
-    camera.position.set(0, 0, 80);
+    camera.position.set(0, 0, 50);
     camera.lookAt(new THREE.Vector3(0, 0, 0));
 
     var renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});

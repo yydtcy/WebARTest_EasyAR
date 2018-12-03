@@ -82,8 +82,8 @@ const WebAR = function(interval, recognizeUrl, token) {
         if (setting) {
             videoSetting = setting;
         }
-        this.trace("1");
-        this.trace(deviceId);
+        //this.trace("1");
+        //this.trace(deviceId);
         // 摄像头参数
         // 更多参数请查看 https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamConstraints
         const constraints = {

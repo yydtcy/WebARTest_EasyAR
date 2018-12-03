@@ -44,6 +44,8 @@ document.querySelector('#openCamera').addEventListener('click', function(){
             });
     };
 
+    webAR.trace("!!!");
+    webAR.trace(videoDevice.length);
     // 列出视频设备
     webAR.listCamera(videoDevice)
         .then(() => {

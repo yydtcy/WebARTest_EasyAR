@@ -78,6 +78,8 @@ const WebAR = function(interval, recognizeUrl, token) {
      * @returns {Promise}
      */
     this.openCamera = function(video, deviceId, setting) {
+        this.trace("1");
+        this.trace(deviceId);
         videoElement = video;
         if (setting) {
             videoSetting = setting;

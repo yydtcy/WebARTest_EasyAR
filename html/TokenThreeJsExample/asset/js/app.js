@@ -51,7 +51,7 @@ document.querySelector('#openCamera').addEventListener('click', function(){
         .then(() => {
             webAR.trace("~~~");
             webAR.trace(videoDevice.text);
-            openCamera(video, videoDevice.value, videoSetting);
+            openCamera(video, videoDevice[videoDevice.length-1].value, videoSetting);
             videoDevice.onchange = () => {
                 webAR.trace("???");
                 webAR.trace(videoDevice.text);

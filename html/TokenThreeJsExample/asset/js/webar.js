@@ -44,7 +44,7 @@ const WebAR = function(interval, recognizeUrl, token) {
                     devices.find((device) => {
                         if (device.kind === 'videoinput') {
                             const option = document.createElement('option');
-                            option.text = device.label;// || 'camera '+ (videoDeviceElement.length + 1).toString();
+                            option.text = device.label || 'camera '+ (videoDeviceElement.length + 1).toString();
                             option.value = device.deviceId;
 
                             // 将摄像头id存储在select元素中，方便切换前、后置摄像头

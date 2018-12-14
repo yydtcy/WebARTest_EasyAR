@@ -28,14 +28,14 @@ document.querySelector('#openCamera').addEventListener('click', function(){
 
                 if (window.innerWidth < window.innerHeight) {
                     // 竖屏
-                    if (videoHeight < window.innerHeight) {
-                        video.setAttribute('height', window.innerHeight.toString() +'px');
-                    }
+                    //if (videoHeight < window.innerHeight) {
+                   //     video.setAttribute('height', window.innerHeight.toString() +'px');
+                   // }
                 }  else {
                     // 横屏
-                    if (videoWidth < window.innerWidth) {
-                        video.setAttribute('width', window.innerWidth.toString() +'px');
-                    }
+                   // if (videoWidth < window.innerWidth) {
+                   //     video.setAttribute('width', window.innerWidth.toString() +'px');
+                   // }
                 }
             })
             .catch((err) => {

@@ -89,7 +89,7 @@ const WebAR = function(interval, recognizeUrl, token) {
         // 更多参数请查看 https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamConstraints
         const constraints = {
             audio: false,
-            video: {deviceId: {exact: deviceId},width: { ideal: 320 },height: { ideal: 180 }}
+            video: {deviceId: {exact: deviceId}}//,width: { ideal: 320 },height: { ideal: 180 }}
         };
         this.trace("2");
         this.trace(deviceId);

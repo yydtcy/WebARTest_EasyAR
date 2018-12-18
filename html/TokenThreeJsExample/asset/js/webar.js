@@ -38,18 +38,25 @@ const WebAR = function(interval, recognizeUrl, token) {
     this.listCamera = function(videoDevice) {
         videoDeviceElement = videoDevice;
         this.trace(videoDeviceElement.length + 1);
+        var c=1;
         return new Promise((resolve, reject) => {
             navigator.mediaDevices.enumerateDevices()
                 .then((devices) => {
                     devices.find((device) => {
                         if (device.kind === 'videoinput') {
-                            const option = document.createElement('option');
-                            option.text = device.label || 'camera '+ (videoDeviceElement.length + 1).toString();
-                            option.value = device.deviceId;
+                            {
+                                if(c==1)
+                                {
+                                    const option = document.createElement('option');
+                                    option.text = device.label || 'camera '+ (videoDeviceElement.length + 1).toString();
+                                    option.value = device.deviceId;
+        
+                                    // 将摄像头id存储在select元素中，方便切换前、后置摄像头
+                                    videoDeviceElement.appendChild(option);
+                                    c=c+1;
+                                }
+                            }
 
-                            // 将摄像头id存储在select元素中，方便切换前、后置摄像头
-                            videoDeviceElement.appendChild(option);
-                            break;
                         }
                     });
 

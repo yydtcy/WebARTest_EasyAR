@@ -165,6 +165,10 @@ const WebAR = function(interval, recognizeUrl, token) {
         }
     };
 
+    this.openURL = function() {
+        window.location.href="http://www.baidu.com";  
+    };
+
     /**
      * HTTP请求，可以使用jQuery等代替
      * @param url

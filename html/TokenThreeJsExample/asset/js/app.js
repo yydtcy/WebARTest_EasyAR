@@ -62,6 +62,7 @@ document.querySelector('#openCamera').addEventListener('click', function(){
             document.querySelector('#openCamera').style.display = 'none';
             document.querySelector('#start').style.display = 'inline-block';
             document.querySelector('#stop').style.display = 'inline-block';
+            document.querySelector('#openURL').style.display = 'inline-block';
         })
         .catch((err) => {
             console.info(err);
@@ -88,4 +89,8 @@ document.querySelector('#start').addEventListener('click', () => {
 
 document.querySelector('#stop').addEventListener('click', () => {
     webAR.stopRecognize();
+}, false);
+
+document.querySelector('#openURL').addEventListener('click', () => {
+    webAR.openURL();
 }, false);

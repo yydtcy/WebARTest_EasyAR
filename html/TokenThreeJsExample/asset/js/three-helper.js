@@ -17,15 +17,15 @@ const ThreeHelper = function(){
 
    // const control = new THREE.OrbitControls(camera, renderer.domElement);//
    // const deviceControl = new THREE.DeviceOrientationControls(camera, true);
-   var deviceControl;// = new THREE.DeviceOrientationControls(camera);
+   var deviceControl = new THREE.DeviceOrientationControls(camera,true);
     //deviceControl.update();
     // 在容器上注册事件，这里container也可以换成document
     //document.body.addEventListener( 'mousedown', onMouseDown, false );
    // initDevices();
     //initMouseControl();
-    deviceControl = new THREE.DeviceOrientationControls(camera);
-    document.addEventListener( 'touchstart', onDocumentTouchStart, false );
-    document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+   // deviceControl = new THREE.DeviceOrientationControls(camera);
+    //document.addEventListener( 'touchstart', onDocumentTouchStart, false );
+   // document.addEventListener( 'touchmove', onDocumentTouchMove, false );
 
     this.clock = new THREE.Clock();
     this.mixers = [];
@@ -43,7 +43,7 @@ const ThreeHelper = function(){
         document.body.appendChild(stats.dom);
     }
 
-    function initMouseControl() {
+    /*function initMouseControl() {
         // mouseControl = new THREE.OrbitControls(camera);
     document.body.addEventListener( 'mousedown', onMouseDown, false );
     document.addEventListener( 'touchstart', onDocumentTouchStart, false );
@@ -72,7 +72,7 @@ const ThreeHelper = function(){
         touchX = touch.screenX;
         touchY = touch.screenY;
     
-    }
+    }*/
     
 
     this.render = function() {
@@ -88,7 +88,11 @@ const ThreeHelper = function(){
         }
         //deviceControl.update();
         //deviceControl.connect();
-        isDeviceing == false ? initMouseControl() : deviceControl.update();
+        //isDeviceing == false ? initMouseControl() : deviceControl.update();
+        if(isDeviceing == true)
+        {
+            deviceControl.update();
+        }
         //control.update();
         window.requestAnimationFrame(() => {
             this.render();

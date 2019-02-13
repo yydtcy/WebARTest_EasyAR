@@ -140,12 +140,13 @@ const ThreeHelper = function(){
             //deviceControl.dispose();
             //control = new THREE.OrbitControls(camera, renderer.domElement);
             isDeviceing = false;
+            deviceControl.dispose();
             //control = new THREE.OrbitControls(camera, renderer.domElement);
             //关闭陀螺仪
             //$("#controlBtn").removeClass("controlIcon").addClass("controlIconae");
         } else {
             //control.dispose();
-            //deviceControl = new THREE.DeviceOrientationControls(camera, true);
+            deviceControl = new THREE.DeviceOrientationControls(camera, true);
             isDeviceing = true;
             //control = new THREE.DeviceOrientationControls(camera, true);
             //开启陀螺仪

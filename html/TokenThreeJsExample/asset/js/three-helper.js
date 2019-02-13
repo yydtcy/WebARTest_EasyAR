@@ -29,7 +29,7 @@ const ThreeHelper = function(){
     document.addEventListener( 'touchstart', onDocumentTouchStart, false );
     document.addEventListener( 'touchmove', onDocumentTouchMove, false );
     window.addEventListener( 'resize', onWindowResize, false );
-    
+
     this.clock = new THREE.Clock();
     this.mixers = [];
 
@@ -48,16 +48,33 @@ const ThreeHelper = function(){
 
     function initMouseControl() {
         // mouseControl = new THREE.OrbitControls(camera);
-        document.addEventListener( 'mousedown', onDocumentMouseDown, false );
-        document.addEventListener( 'wheel', onDocumentMouseWheel, false );
-        document.addEventListener( 'touchstart', onDocumentTouchStart, false );
-        document.addEventListener( 'touchmove', onDocumentTouchMove, false );
-        window.addEventListener( 'resize', onWindowResize, false );
+    document.body.addEventListener( 'mousedown', onMouseDown, false );
+    document.addEventListener( 'touchstart', onDocumentTouchStart, false );
+    document.addEventListener( 'touchmove', onDocumentTouchMove, false );
     
     }
 
     function initDevices() {
         deviceControl = new THREE.DeviceOrientationControls(camera);
+    }
+
+    var touchX, touchY;
+    function onDocumentTouchStart( event ) {
+        event.preventDefault();
+        var touch = event.touches[ 0 ];
+        touchX = touch.screenX;
+        touchY = touch.screenY;
+    
+    }
+    
+    function onDocumentTouchMove( event ) {
+        event.preventDefault();
+        var touch = event.touches[ 0 ];
+        lon -= ( touch.screenX - touchX ) * 0.1;
+        lat += ( touch.screenY - touchY ) * 0.1;
+        touchX = touch.screenX;
+        touchY = touch.screenY;
+    
     }
     
 

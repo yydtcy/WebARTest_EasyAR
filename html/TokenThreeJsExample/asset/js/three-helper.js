@@ -49,6 +49,8 @@ const ThreeHelper = function(){
             mixer.update(this.clock.getDelta());
         }
 
+        isDeviceing == false ? initMouseControl() : deviceControl.update();
+
         window.requestAnimationFrame(() => {
             this.render();
         });
@@ -78,6 +80,28 @@ const ThreeHelper = function(){
         var helper = new THREE.AxesHelper(50);
         scene.add(helper);
         flag = window.setInterval(initCube, 1000);
+    }
+
+    var controlsBtn= document.getElementById("controlBtn"); // 控制陀螺仪开关的按钮
+    var isDeviceing = false; // 陀螺仪状态
+    controlsBtn.addEventListener("touchend", controlDevice, true);
+    isDeviceing == true ? $("#controlBtn").addClass("controlIconae") : $("#controlBtn").addClass("controlIcon");
+    // 初始化陀螺仪
+    this.initDevices=function () {
+        deviceControl = new THREE.DeviceOrientationControls(camera);
+    }
+
+    /* 控制陀螺仪 */
+    this.controlDevice=function(event) {
+        if (isDeviceing == true) {
+            isDeviceing = false;
+            //关闭陀螺仪
+            $("#controlBtn").removeClass("controlIcon").addClass("controlIconae");
+        } else {
+            isDeviceing = true;
+            //开启陀螺仪
+            $("#controlBtn").removeClass("controlIconae").addClass("controlIcon");
+        }
     }
 
     function initCube(){
@@ -213,6 +237,7 @@ const ThreeHelper = function(){
     this.draw=function(){
         this.initModel();
         this.initStats();
+        this.initDevices();
         this.render();
     }
 

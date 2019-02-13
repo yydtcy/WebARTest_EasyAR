@@ -16,7 +16,6 @@ const ThreeHelper = function(){
     scene.add(new THREE.AmbientLight(0xFFFFFF));
 
     const control = new THREE.OrbitControls(camera, renderer.domElement);
-    control.update();
 
     const deviceControl = new THREE.DeviceOrientationControls(camera, true);
     //deviceControl.update();
@@ -50,9 +49,9 @@ const ThreeHelper = function(){
         for (const mixer of this.mixers) {
             mixer.update(this.clock.getDelta());
         }
-        deviceControl.update();
+        //deviceControl.update();
         //deviceControl.connect();
-        //isDeviceing == false ? initMouseControl() : deviceControl.update();
+        isDeviceing == false ? control.update() : deviceControl.update();
 
         window.requestAnimationFrame(() => {
             this.render();
@@ -85,8 +84,8 @@ const ThreeHelper = function(){
         flag = window.setInterval(initCube, 1000);
     }
 
-    //var controlsBtn= document.getElementById("controlBtn"); // 控制陀螺仪开关的按钮
-    var isDeviceing = true; // 陀螺仪状态
+    var gyroControl= document.getElementById("gyroControl"); // 控制陀螺仪开关的按钮
+    var isDeviceing = false; // 陀螺仪状态
     //controlsBtn.addEventListener("touchend", controlDevice, true);
     //isDeviceing == true ? $("#controlBtn").addClass("controlIconae") : $("#controlBtn").addClass("controlIcon");
     // 初始化陀螺仪
@@ -94,18 +93,18 @@ const ThreeHelper = function(){
        // deviceControl = new THREE.DeviceOrientationControls(camera);
     //}
 
-   /* // 控制陀螺仪
-    this.controlDevice=function(event) {
+    // 控制陀螺仪
+    this.gyroControl=function(event) {
         if (isDeviceing == true) {
             isDeviceing = false;
             //关闭陀螺仪
-            $("#controlBtn").removeClass("controlIcon").addClass("controlIconae");
+            //$("#controlBtn").removeClass("controlIcon").addClass("controlIconae");
         } else {
             isDeviceing = true;
             //开启陀螺仪
-            $("#controlBtn").removeClass("controlIconae").addClass("controlIcon");
+           // $("#controlBtn").removeClass("controlIconae").addClass("controlIcon");
         }
-    }*/
+    }
 
     function initCube(){
         if(i<50)

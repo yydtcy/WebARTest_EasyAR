@@ -63,6 +63,7 @@ document.querySelector('#openCamera').addEventListener('click', function(){
             document.querySelector('#start').style.display = 'inline-block';
             document.querySelector('#stop').style.display = 'inline-block';
             document.querySelector('#openURL').style.display = 'inline-block';
+            document.querySelector('#gyroControl').style.display = 'inline-block';
         })
         .catch((err) => {
             console.info(err);
@@ -93,4 +94,8 @@ document.querySelector('#stop').addEventListener('click', () => {
 
 document.querySelector('#openURL').addEventListener('click', () => {
     webAR.openURL();
+}, false);
+
+document.querySelector('#gyroControl').addEventListener('click', () => {
+    threeHelper.gyroControl();
 }, false);

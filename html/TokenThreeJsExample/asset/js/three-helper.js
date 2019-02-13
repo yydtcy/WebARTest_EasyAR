@@ -82,16 +82,16 @@ const ThreeHelper = function(){
         flag = window.setInterval(initCube, 1000);
     }
 
-    var controlsBtn= document.getElementById("controlBtn"); // 控制陀螺仪开关的按钮
-    var isDeviceing = false; // 陀螺仪状态
-    controlsBtn.addEventListener("touchend", controlDevice, true);
-    isDeviceing == true ? $("#controlBtn").addClass("controlIconae") : $("#controlBtn").addClass("controlIcon");
+    //var controlsBtn= document.getElementById("controlBtn"); // 控制陀螺仪开关的按钮
+    var isDeviceing = true; // 陀螺仪状态
+    //controlsBtn.addEventListener("touchend", controlDevice, true);
+    //isDeviceing == true ? $("#controlBtn").addClass("controlIconae") : $("#controlBtn").addClass("controlIcon");
     // 初始化陀螺仪
     this.initDevices=function () {
         deviceControl = new THREE.DeviceOrientationControls(camera);
     }
 
-    /* 控制陀螺仪 */
+   /* // 控制陀螺仪
     this.controlDevice=function(event) {
         if (isDeviceing == true) {
             isDeviceing = false;
@@ -102,7 +102,7 @@ const ThreeHelper = function(){
             //开启陀螺仪
             $("#controlBtn").removeClass("controlIconae").addClass("controlIcon");
         }
-    }
+    }*/
 
     function initCube(){
         if(i<50)

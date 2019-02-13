@@ -40,7 +40,7 @@ const ThreeHelper = function(){
         document.body.appendChild(stats.dom);
     }
 
-    this.initMouseControl=function() {
+    function initMouseControl() {
         // mouseControl = new THREE.OrbitControls(camera);
         document.addEventListener( 'mousedown', onDocumentMouseDown, false );
         document.addEventListener( 'wheel', onDocumentMouseWheel, false );
@@ -50,7 +50,7 @@ const ThreeHelper = function(){
     
     }
 
-    this.initDevices=function() {
+    function initDevices() {
         deviceControl = new THREE.DeviceOrientationControls(camera);
     }
     

@@ -20,7 +20,7 @@ const ThreeHelper = function(){
    var deviceControl = new THREE.DeviceOrientationControls(camera,true);
     //deviceControl.update();
     // 在容器上注册事件，这里container也可以换成document
-    //document.body.addEventListener( 'mousedown', onMouseDown, false );
+    document.body.addEventListener( 'mousedown', onMouseDown, false );
    // initDevices();
     //initMouseControl();
    // deviceControl = new THREE.DeviceOrientationControls(camera);
@@ -126,7 +126,7 @@ const ThreeHelper = function(){
     }
 
     var gyroControl= document.getElementById("gyroControl"); // 控制陀螺仪开关的按钮
-    var isDeviceing = false; // 陀螺仪状态
+    var isDeviceing = true; // 陀螺仪状态
     //controlsBtn.addEventListener("touchend", controlDevice, true);
     //isDeviceing == true ? $("#controlBtn").addClass("controlIconae") : $("#controlBtn").addClass("controlIcon");
     // 初始化陀螺仪

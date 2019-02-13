@@ -237,7 +237,7 @@ const ThreeHelper = function(){
     this.draw=function(){
         this.initModel();
         this.initStats();
-        this.initDevices();
+        //this.initDevices();
         this.render();
     }
 

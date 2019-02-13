@@ -26,7 +26,6 @@ const ThreeHelper = function(){
     deviceControl = new THREE.DeviceOrientationControls(camera);
     document.addEventListener( 'touchstart', onDocumentTouchStart, false );
     document.addEventListener( 'touchmove', onDocumentTouchMove, false );
-    window.addEventListener( 'resize', onWindowResize, false );
 
     this.clock = new THREE.Clock();
     this.mixers = [];

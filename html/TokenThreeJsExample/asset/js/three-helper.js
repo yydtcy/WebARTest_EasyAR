@@ -16,8 +16,7 @@ const ThreeHelper = function(){
     scene.add(new THREE.AmbientLight(0xFFFFFF));
 
     const control = new THREE.OrbitControls(camera, renderer.domElement);
-    const deviceControl=null;
-    //const deviceControl = new THREE.DeviceOrientationControls(camera, true);
+    const deviceControl = new THREE.DeviceOrientationControls(camera, false);
     //deviceControl.update();
     // 在容器上注册事件，这里container也可以换成document
     document.body.addEventListener( 'mousedown', onMouseDown, false );

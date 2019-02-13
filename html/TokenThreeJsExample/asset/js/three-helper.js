@@ -95,15 +95,15 @@ const ThreeHelper = function(){
     // 控制陀螺仪
     this.gyroControl=function(event) {
         if (isDeviceing == true) {
-            isDeviceing = false;
             deviceControl.dispose();
             control = new THREE.OrbitControls(camera, renderer.domElement);
+            isDeviceing = false;
             //关闭陀螺仪
             //$("#controlBtn").removeClass("controlIcon").addClass("controlIconae");
         } else {
-            isDeviceing = true;
             control.dispose();
             deviceControl = new THREE.DeviceOrientationControls(camera, true);
+            isDeviceing = true;
             //开启陀螺仪
            // $("#controlBtn").removeClass("controlIconae").addClass("controlIcon");
         }

@@ -49,7 +49,7 @@ const ThreeHelper = function(){
             mixer.update(this.clock.getDelta());
         }
 
-        isDeviceing == false ? initMouseControl() : deviceControl.update();
+        //isDeviceing == false ? initMouseControl() : deviceControl.update();
 
         window.requestAnimationFrame(() => {
             this.render();

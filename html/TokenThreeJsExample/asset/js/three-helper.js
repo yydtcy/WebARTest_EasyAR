@@ -83,7 +83,7 @@ const ThreeHelper = function(){
     }
 
     //var controlsBtn= document.getElementById("controlBtn"); // 控制陀螺仪开关的按钮
-    var isDeviceing = true; // 陀螺仪状态
+    var isDeviceing = false; // 陀螺仪状态
     //controlsBtn.addEventListener("touchend", controlDevice, true);
     //isDeviceing == true ? $("#controlBtn").addClass("controlIconae") : $("#controlBtn").addClass("controlIcon");
     // 初始化陀螺仪

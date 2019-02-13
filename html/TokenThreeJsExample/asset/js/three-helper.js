@@ -18,8 +18,8 @@ const ThreeHelper = function(){
     const control = new THREE.OrbitControls(camera, renderer.domElement);
     control.update();
 
-    const deviceControl = new THREE.DeviceOrientationControls(camera);
-    deviceControl.update();
+    const deviceControl = new THREE.DeviceOrientationControls(camera, true);
+    //deviceControl.update();
     // 在容器上注册事件，这里container也可以换成document
     document.body.addEventListener( 'mousedown', onMouseDown, false );
 
@@ -50,7 +50,7 @@ const ThreeHelper = function(){
         for (const mixer of this.mixers) {
             mixer.update(this.clock.getDelta());
         }
-
+        deviceControl.update();
         //isDeviceing == false ? initMouseControl() : deviceControl.update();
 
         window.requestAnimationFrame(() => {

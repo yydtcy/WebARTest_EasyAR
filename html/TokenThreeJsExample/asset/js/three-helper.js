@@ -21,8 +21,14 @@ const ThreeHelper = function(){
     //deviceControl.update();
     // 在容器上注册事件，这里container也可以换成document
     //document.body.addEventListener( 'mousedown', onMouseDown, false );
-    initDevices();
-    initMouseControl();
+   // initDevices();
+    //initMouseControl();
+    deviceControl = new THREE.DeviceOrientationControls(camera);
+    document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+    document.addEventListener( 'wheel', onDocumentMouseWheel, false );
+    document.addEventListener( 'touchstart', onDocumentTouchStart, false );
+    document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+    window.addEventListener( 'resize', onWindowResize, false );
     
     this.clock = new THREE.Clock();
     this.mixers = [];

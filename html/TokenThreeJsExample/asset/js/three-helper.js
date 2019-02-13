@@ -18,6 +18,8 @@ const ThreeHelper = function(){
     const control = new THREE.OrbitControls(camera, renderer.domElement);
     control.update();
 
+    const deviceControl = new THREE.DeviceOrientationControls(camera);
+    deviceControl.update();
     // 在容器上注册事件，这里container也可以换成document
     document.body.addEventListener( 'mousedown', onMouseDown, false );
 
@@ -83,13 +85,13 @@ const ThreeHelper = function(){
     }
 
     //var controlsBtn= document.getElementById("controlBtn"); // 控制陀螺仪开关的按钮
-    var isDeviceing = false; // 陀螺仪状态
+    var isDeviceing = true; // 陀螺仪状态
     //controlsBtn.addEventListener("touchend", controlDevice, true);
     //isDeviceing == true ? $("#controlBtn").addClass("controlIconae") : $("#controlBtn").addClass("controlIcon");
     // 初始化陀螺仪
-    this.initDevices=function () {
-        deviceControl = new THREE.DeviceOrientationControls(camera);
-    }
+    //this.initDevices=function () {
+       // deviceControl = new THREE.DeviceOrientationControls(camera);
+    //}
 
    /* // 控制陀螺仪
     this.controlDevice=function(event) {

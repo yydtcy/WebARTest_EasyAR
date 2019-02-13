@@ -21,7 +21,7 @@ const ThreeHelper = function(){
     //deviceControl.update();
     // 在容器上注册事件，这里container也可以换成document
     document.body.addEventListener( 'mousedown', onMouseDown, false );
-
+    
     this.clock = new THREE.Clock();
     this.mixers = [];
 
@@ -97,10 +97,12 @@ const ThreeHelper = function(){
     this.gyroControl=function(event) {
         if (isDeviceing == true) {
             isDeviceing = false;
+            control.OrbitControls(camera);
             //关闭陀螺仪
             //$("#controlBtn").removeClass("controlIcon").addClass("controlIconae");
         } else {
             isDeviceing = true;
+            deviceControl.DeviceOrientationControls(camera);
             //开启陀螺仪
            // $("#controlBtn").removeClass("controlIconae").addClass("controlIcon");
         }

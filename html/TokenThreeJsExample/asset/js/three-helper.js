@@ -15,8 +15,8 @@ const ThreeHelper = function(){
     var scene = new THREE.Scene();
     scene.add(new THREE.AmbientLight(0xFFFFFF));
 
-    const control = new THREE.OrbitControls(camera, renderer.domElement);
-   // const deviceControl = new THREE.DeviceOrientationControls(camera, false);
+    const control = new THREE.OrbitControls(camera, true);//renderer.domElement
+    const deviceControl = new THREE.DeviceOrientationControls(camera, true);
     //deviceControl.update();
     // 在容器上注册事件，这里container也可以换成document
     document.body.addEventListener( 'mousedown', onMouseDown, false );
@@ -50,8 +50,8 @@ const ThreeHelper = function(){
         }
         //deviceControl.update();
         //deviceControl.connect();
-        //isDeviceing == false ? control.update() : deviceControl.update();
-        control.update();
+        isDeviceing == false ? control.update() : deviceControl.update();
+        //control.update();
         window.requestAnimationFrame(() => {
             this.render();
         });
@@ -98,14 +98,14 @@ const ThreeHelper = function(){
             //deviceControl.dispose();
             //control = new THREE.OrbitControls(camera, renderer.domElement);
             isDeviceing = false;
-            control = new THREE.OrbitControls(camera, renderer.domElement);
+            //control = new THREE.OrbitControls(camera, renderer.domElement);
             //关闭陀螺仪
             //$("#controlBtn").removeClass("controlIcon").addClass("controlIconae");
         } else {
             //control.dispose();
             //deviceControl = new THREE.DeviceOrientationControls(camera, true);
             isDeviceing = true;
-            control = new THREE.DeviceOrientationControls(camera, true);
+            //control = new THREE.DeviceOrientationControls(camera, true);
             //开启陀螺仪
            // $("#controlBtn").removeClass("controlIconae").addClass("controlIcon");
         }

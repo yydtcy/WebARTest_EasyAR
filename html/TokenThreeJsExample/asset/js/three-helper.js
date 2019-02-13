@@ -24,8 +24,6 @@ const ThreeHelper = function(){
    // initDevices();
     //initMouseControl();
     deviceControl = new THREE.DeviceOrientationControls(camera);
-    document.addEventListener( 'mousedown', onDocumentMouseDown, false );
-    document.addEventListener( 'wheel', onDocumentMouseWheel, false );
     document.addEventListener( 'touchstart', onDocumentTouchStart, false );
     document.addEventListener( 'touchmove', onDocumentTouchMove, false );
     window.addEventListener( 'resize', onWindowResize, false );

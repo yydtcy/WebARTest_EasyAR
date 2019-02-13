@@ -15,11 +15,14 @@ const ThreeHelper = function(){
     var scene = new THREE.Scene();
     scene.add(new THREE.AmbientLight(0xFFFFFF));
 
-    const control = new THREE.OrbitControls(camera, true);//renderer.domElement
-    const deviceControl = new THREE.DeviceOrientationControls(camera, true);
+   // const control = new THREE.OrbitControls(camera, renderer.domElement);//
+   // const deviceControl = new THREE.DeviceOrientationControls(camera, true);
+   var deviceControl;// = new THREE.DeviceOrientationControls(camera);
     //deviceControl.update();
     // 在容器上注册事件，这里container也可以换成document
-    document.body.addEventListener( 'mousedown', onMouseDown, false );
+    //document.body.addEventListener( 'mousedown', onMouseDown, false );
+    initDevices();
+    initMouseControl();
     
     this.clock = new THREE.Clock();
     this.mixers = [];
@@ -37,6 +40,21 @@ const ThreeHelper = function(){
         document.body.appendChild(stats.dom);
     }
 
+    this.initMouseControl=function() {
+        // mouseControl = new THREE.OrbitControls(camera);
+        document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+        document.addEventListener( 'wheel', onDocumentMouseWheel, false );
+        document.addEventListener( 'touchstart', onDocumentTouchStart, false );
+        document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+        window.addEventListener( 'resize', onWindowResize, false );
+    
+    }
+
+    this.initDevices=function() {
+        deviceControl = new THREE.DeviceOrientationControls(camera);
+    }
+    
+
     this.render = function() {
         renderer.render(scene, camera);
 
@@ -50,7 +68,7 @@ const ThreeHelper = function(){
         }
         //deviceControl.update();
         //deviceControl.connect();
-        isDeviceing == false ? control.update() : deviceControl.update();
+        isDeviceing == false ? initMouseControl() : deviceControl.update();
         //control.update();
         window.requestAnimationFrame(() => {
             this.render();
